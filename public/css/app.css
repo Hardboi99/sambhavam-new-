@@ -1,0 +1,88 @@
+:root {
+    --sambhavam-blue: #023A91;
+    --sambhavam-teal: #01766D;
+    --sambhavam-green: #23922C;
+    --sambhavam-yellow: #FFE975;
+    --sambhavam-orange: #FF7B04;
+    --sambhavam-red-orange: #FD5200;
+    --text-dark: #2c2c2a;
+    --text-muted: #5f5e5a;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--text-dark);
+}
+
+.hero {
+    background: linear-gradient(to bottom, #FFF8E1, #ffffff);
+}
+
+.hero-logo {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+}
+
+.hero-title {
+    font-size: 2.75rem;
+    font-weight: 600;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--sambhavam-blue);
+}
+
+.hero-subtitle {
+    max-width: 600px;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--sambhavam-blue);
+}
+
+.brand-line {
+    color: var(--sambhavam-teal);
+    font-weight: 500;
+}
+
+.btn-success {
+    background-color: var(--sambhavam-green);
+    border-color: var(--sambhavam-green);
+}
+
+.btn-success:hover {
+    background-color: var(--sambhavam-teal);
+    border-color: var(--sambhavam-teal);
+}
+
+.impact-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e0;
+    border-top: 3px solid var(--sambhavam-orange);
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: box-shadow 0.2s ease;
+}
+
+.impact-card:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.impact-card h3 {
+    color: var(--sambhavam-teal);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.impact-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
