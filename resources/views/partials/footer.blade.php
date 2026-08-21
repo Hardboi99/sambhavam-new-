@@ -77,9 +77,14 @@
         </div>
     </div>
     <div class="copyright-area">
-        <div class="container">
-            <div class="copyright-content">
-                <p>Copyright &copy; {{ date('Y') }} <span>Sambhavam Foundation</span>. All Rights Reserved. | Learn. Innovate. Lead. Create Impact.</p>
+        <div class="container ">
+            <div class="d-md-flex d-block ">
+            <div class="copyright-content ">
+                <p>Copyright &copy; {{ date('Y') }} <span>Sambhavam Foundation</span>. All Rights Reserved.</p>
+            </div>
+            <div class="developed-content">
+                <p>Developed By <a href="https://hsdigitalmedia.com/" target="_blank">HS Digital Media®</a>.</p>
+            </div>
             </div>
         </div>
     </div>
@@ -87,6 +92,6 @@
 <!-- ./ footer-section -->
 
 <div id="scrollup">
-    <button id="scroll-top" class="scroll-to-top"><i class="fa-regular fa-arrow-up-long"></i></button>
+    <button id="scroll-top" class="scroll-to-top"><i class="fa fa-arrow-up-long"></i></button>
 </div>
 <!--scrollup-->

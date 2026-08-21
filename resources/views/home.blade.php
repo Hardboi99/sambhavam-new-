@@ -7,28 +7,28 @@
     <!-- ============================================= -->
     <!-- SECTION 1: HERO BANNER SLIDER -->
     <!-- ============================================= -->
-    <section class="hero-banner-slider overflow-hidden">
+    <section class="hero-banner-slider overflow-hidden mx-3 my-3">
         <div class="swiper hero-banner-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="{{ asset('images/banners/b1.png') }}" class="d-md-block d-none" alt="Sambhavam Banner 1">
-                    <img src="{{ asset('images/banners/m11.png') }}"  class="d-md-none d-block" alt="Sambhavam Banner mobile 1">
+                    <img src="{{ asset('images/banners/desktop/banner1.jpeg') }}" class="d-md-block d-none bannerwidth" alt="Sambhavam Banner 1">
+                    <img src="{{ asset('images/banners/mobile/mobile1.jpeg') }}"  class="d-md-none d-block" alt="Sambhavam Banner mobile 1">
                 </div>
                 <div class="swiper-slide">
-                    <img src="{{ asset('images/banners/b2.png') }}" class="d-md-block d-none" alt="Sambhavam Banner 2">
-                    <img src="{{ asset('images/banners/m2.png') }}"  class="d-md-none d-block" alt="Sambhavam Banner mobile 2">
+                    <img src="{{ asset('images/banners/desktop/banner2.png') }}" class="d-md-block d-none bannerwidth" alt="Sambhavam Banner 2">
+                    <img src="{{ asset('images/banners/mobile/mobile2.jpeg') }}"  class="d-md-none d-block" alt="Sambhavam Banner mobile 2">
                 </div>
                 <div class="swiper-slide">
-                    <img src="{{ asset('images/banners/b3.png') }}" class="d-md-block d-none" alt="Sambhavam Banner 3">
-                    <img src="{{ asset('images/banners/m3.png') }}"  class="d-md-none d-block" alt="Sambhavam Banner mobile 3">
+                    <img src="{{ asset('images/banners/desktop/banner3.png') }}" class="d-md-block d-none bannerwidth" alt="Sambhavam Banner 3">
+                    <img src="{{ asset('images/banners/mobile/mobile3.jpeg') }}"  class="d-md-none d-block" alt="Sambhavam Banner mobile 3">
                 </div>
                 <div class="swiper-slide">
-                    <img src="{{ asset('images/banners/b4.png') }}" class="d-md-block d-none" alt="Sambhavam Banner 4">
-                    <img src="{{ asset('images/banners/m4.png') }}"  class="d-md-none d-block" alt="Sambhavam Banner mobile 4">
+                    <img src="{{ asset('images/banners/desktop/banner4.png') }}" class="d-md-block d-none bannerwidth" alt="Sambhavam Banner 4">
+                    <img src="{{ asset('images/banners/mobile/mobile4.jpeg') }}"  class="d-md-none d-block" alt="Sambhavam Banner mobile 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="{{ asset('images/banners/b5.png') }}" class="d-md-block d-none" alt="Sambhavam Banner 5">
-                    <img src="{{ asset('images/banners/m5.png') }}"  class="d-md-none d-block" alt="Sambhavam Banner mobile 5">
+                    <img src="{{ asset('images/banners/desktop/banner5.png') }}" class="d-md-block d-none bannerwidth" alt="Sambhavam Banner 5">
+                    <img src="{{ asset('images/banners/mobile/mobile5.jpeg') }}"  class="d-md-none d-block" alt="Sambhavam Banner mobile 5">
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -39,7 +39,7 @@
     <!-- ============================================= -->
     <!-- SECTION 2: BRAND PROMISE -->
     <!-- ============================================= -->
-    <section class="brand-promise-section pt-80 pb-50">
+    <section class="brand-promise-section pt-50 pb-50">
         <div class="container text-center">
             <div class="section-heading mb-0" style="max-width: 760px; margin: 0 auto;">
                 <h4 class="sub-heading wow fade-in-bottom" data-wow-delay="200ms"><span class="heading-icon"><i class="fa fa-bolt"></i></span>Our Brand Promise</h4>
@@ -433,6 +433,84 @@
     </section>
     <!-- ./ course-carousel-area-2 -->
 
+    <!-- ============================================= -->
+<!-- COUNSELLING POPUP -->
+<!-- ============================================= -->
+
+<div class="schp-counselling-overlay" id="counsellingModal">
+    <div class="schp-counselling-modal">
+
+        <button type="button"
+                class="schp-counselling-close"
+                id="closeCounsellingModal"
+                aria-label="Close">
+            &times;
+        </button>
+
+        <div class="schp-counselling-content">
+
+            <div class="schp-counselling-icon">
+                <i class="fa fa-graduation-cap"></i>
+            </div>
+
+            <span class="schp-counselling-label">
+                SAMBHAVAM ACADEMY
+            </span>
+
+            <h3>Not Sure Which Path Is Right for You?</h3>
+
+            <p>
+                Speak with our academic counsellors and get guidance
+                based on your goals, interests and career aspirations.
+            </p>
+
+            <form class="schp-counselling-form" id="counsellingForm">
+
+                <div class="schp-form-group">
+                    <input type="text"
+                        id="counsellingName"
+                        name="name"
+                        placeholder="Your Name"
+                        required>
+                </div>
+
+                <div class="schp-form-group">
+                    <input type="tel"
+                        id="counsellingPhone"
+                        name="phone"
+                        placeholder="Mobile Number"
+                        required>
+                </div>
+
+                <div class="schp-form-group">
+                    <select id="counsellingInterest"
+                            name="interest"
+                            required>
+                        <option value="">Select Your Interest</option>
+                        <option value="UPSC / MPSC">UPSC / MPSC</option>
+                        <option value="JEE / Engineering">JEE / Engineering</option>
+                        <option value="NEET / Medical">NEET / Medical</option>
+                        <option value="School Foundation">School Foundation</option>
+                        <option value="Future Skills & AI">Future Skills & AI</option>
+                        <option value="Leadership & Life Skills">Leadership & Life Skills</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="schp-counselling-btn">
+                    Book Free Counselling
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+
+            </form>
+
+            <span class="schp-counselling-note">
+                Our academic team will get in touch with you.
+            </span>
+
+        </div>
+    </div>
+</div>
+
     @include('partials.impact-stats')
     @include('partials.testimonial-wall')
 
@@ -455,6 +533,76 @@
             navigation: { nextEl: '.swiper-next', prevEl: '.swiper-prev' },
             breakpoints: { 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }
         });
+
+        // Counselling popup -> show automatically after 5 seconds
+        const counsellingModal = document.getElementById('counsellingModal');
+        const closeCounsellingModal = document.getElementById('closeCounsellingModal');
+
+        if (counsellingModal) {
+
+            // Don't re-show it again in the same browser tab/session once
+            // it has already been shown once (closed or submitted)
+            if (!sessionStorage.getItem('counsellingPopupShown')) {
+                setTimeout(function () {
+                    counsellingModal.classList.add('active');
+                    sessionStorage.setItem('counsellingPopupShown', '1');
+                }, 5000);
+            }
+
+            // Close on the × button
+            if (closeCounsellingModal) {
+                closeCounsellingModal.addEventListener('click', function () {
+                    counsellingModal.classList.remove('active');
+                });
+            }
+
+            // Close when clicking the dark backdrop (outside the modal box)
+            counsellingModal.addEventListener('click', function (e) {
+                if (e.target === counsellingModal) {
+                    counsellingModal.classList.remove('active');
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    counsellingModal.classList.remove('active');
+                }
+            });
+        }
     });
+
+        // Counselling form -> WhatsApp
+        const counsellingForm = document.getElementById('counsellingForm');
+
+        if (counsellingForm) {
+
+            counsellingForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById('counsellingName').value.trim();
+                const phone = document.getElementById('counsellingPhone').value.trim();
+                const interest = document.getElementById('counsellingInterest').value;
+
+                const message =
+                    "Hello Sambhavam Academy,%0A%0A" +
+                    "I would like to book a free counselling session.%0A%0A" +
+                    "Name: " + encodeURIComponent(name) + "%0A" +
+                    "Mobile: " + encodeURIComponent(phone) + "%0A" +
+                    "Interested In: " + encodeURIComponent(interest);
+
+                const whatsappUrl =
+                    "https://wa.me/919967100926?text=" + message;
+
+                window.open(whatsappUrl, '_blank');
+            });
+
+            // Close popup + go to WhatsApp once the user has submitted
+            counsellingForm.addEventListener('submit', function () {
+                if (counsellingModal) {
+                    counsellingModal.classList.remove('active');
+                }
+            });
+        }
 </script>
 @endpush

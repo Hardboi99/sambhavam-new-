@@ -708,15 +708,20 @@
         var swiperCourse = new Swiper(".course-carousel-3", {
             slidesPerView: 3,
             spaceBetween: 24,
-            grabcursor: true,
+            grabCursor: true,
             speed: 600,
             loop: true,
-            autoplay: false,
-            grabcursor: true,
+
+            autoplay: {
+                delay: 3000, // 3 seconds
+                disableOnInteraction: false,
+            },
+
             navigation: {
                 nextEl: '.course-carousel-top .swiper-prev',
                 prevEl: '.course-carousel-top .swiper-next',
             },
+
             breakpoints: {
                 0: {
                     slidesPerView: 1,

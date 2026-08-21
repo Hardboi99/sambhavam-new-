@@ -24,9 +24,9 @@
                                     <a href="{{ url('/') }}">Home</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="{{ url('about') }}">About</a>
+                                    <a href="{{ url('about-us') }}">About</a>
                                     <ul>
-                                        <li><a href="{{ url('about') }}">About Us</a></li>
+                                        <li><a href="{{ url('about-us') }}">About Us</a></li>
                                         <li><a href="{{ url('about') }}#impact">Our Impact Ecosystem</a></li>
                                         <li><a href="{{ url('careers') }}">Careers</a></li>
                                     </ul>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="header-right-wrap">
                     <div class="header-right">
-                        <a href="{{ url('contact') }}" class="ed-primary-btn header-btn d-none d-md-block">Book Free Counselling</a>
+                        <a href="{{ url('contact') }}" class="ed-primary-btn header-btn d-none d-md-block">Login/Register</a>
                         <div class="header-right-item d-lg-none d-md-block">
                             <a href="javascript:void(0)" class="mobile-side-menu-toggle"><i class="fa fa-bars"></i></a>
                         </div>
@@ -90,9 +90,9 @@
         </div>
         <div class="side-menu-wrap"></div>
         <ul class="side-menu-list">
-            <li><i class="fa fa-map-marker"></i>Address : <span>CBD Belapur, Navi Mumbai</span></li>
-            <li><i class="fa fa-phone"></i>Phone : <a href="tel:+912249789869">+91 22 4978 9869</a></li>
-            <li><i class="fa fa-envelope"></i>Email : <a href="mailto:sambhavamfoundation@gmail.com">sambhavamfoundation@gmail.com</a></li>
+            <li><i class="fa fa-map-marker"></i>Address : <br><span>CBD Belapur, Navi Mumbai</span></li>
+            <li><i class="fa fa-phone"></i>Phone : <br><a href="tel:+912249789869">+91 22 4978 9869</a></li>
+            <li><i class="fa fa-envelope"></i>Email : <br><a href="mailto:sambhavamfoundation@gmail.com">sambhavamfoundation@gmail.com</a></li>
         </ul>
     </div>
 </div>
