@@ -85,7 +85,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-2" data-field>
+                        <div class="mb-2 mt-2 g-3" data-field>
                             <label for="message" class="visually-hidden">Message</label>
                             <textarea id="message" name="message" rows="5" class="form-control"
                                       placeholder="Message" maxlength="2000" required

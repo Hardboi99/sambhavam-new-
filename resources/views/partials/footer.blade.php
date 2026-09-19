@@ -3,9 +3,9 @@
      Edit this ONE file and every page's footer updates automatically.
 ================================================================ --}}
 
-<footer class="footer-section pt-120" style="background-image:url('{{ asset('images/banners/footer.jpg') }}'); background-size:cover; background-position:center; background-repeat:no-repeat; position:relative; z-index:1;">
+<footer class="footer-section pt-100 " style="background-image:url('{{ asset('images/banners/footer.jpg') }}'); background-size:cover; background-position:center; background-repeat:no-repeat; position:relative; z-index:1;">
 
-    <div class="footer-top-wrap">
+    <div class="footer-top-wrap pb-60">
         <div class="container">
             <div class="row footer-wrap">
 
@@ -17,7 +17,7 @@
                         <div class="footer-contact">
                             <span class="number"><i class="fa fa-phone"></i><a href="tel:+912249789869">+91 22 4978 9869</a></span>
                             <span class="number"><i class="fa fa-phone"></i><a href="tel:+918850332700">+91 88503 32700</a></span>
-                            <a href="mailto:sambhavamfoundation@gmail.com" class="mail">sambhavamfoundation@gmail.com</a>
+                            <a href="mailto:enquiry@sambhavam.org" class="mail">enquiry@sambhavam.org</a>
                         </div>
                         <ul class="footer-social">
                             <li><a href="https://www.facebook.com/profile.php?id=61593294384122" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
@@ -34,7 +34,7 @@
                     <div class="footer-widget widget-2">
                         <h3 class="widget-header">About Sambhavam</h3>
                         <ul class="footer-list">
-                            <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('about') }}">About Us</a></li>
+                            <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('about-us') }}">About Us</a></li>
                             <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('about') }}#academy">Sambhavam Academy</a></li>
                             <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('about') }}#impact">Our Impact Ecosystem</a></li>
                             <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('careers') }}">Careers</a></li>
@@ -49,12 +49,23 @@
                     <div class="footer-widget">
                         <h3 class="widget-header">Programmes</h3>
                         <ul class="footer-list">
-                            <li><a href="{{ url('course-details') }}?course=upsc-civil-services">Civil Services</a></li>
-                            <li><a href="{{ url('course-details') }}?course=jee-main-advanced">Engineering (JEE / MHT-CET)</a></li>
-                            <li><a href="{{ url('course-details') }}?course=neet-ug">Medical (NEET-UG)</a></li>
-                            <li><a href="{{ url('course-details') }}?course=school-foundation">School Foundation</a></li>
-                            <li><a href="{{ url('course-details') }}?course=leadership-life-skills">Leadership &amp; Life Skills</a></li>
-                            <li><a href="{{ url('course-details') }}?course=ai-coding-future-skills">Future Skills &amp; Innovation</a></li>
+                            @foreach ($headerCategories as $category)
+                                @if($category->courses->count() === 1)
+                                    {{-- Single-course category: link straight to that course --}}
+                                    <li>
+                                        <a href="{{ url('course-details') }}?course={{ $category->courses->first()->slug }}">
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
+                                @else
+                                    {{-- Multi-course category: link to the category's course listing --}}
+                                    <li>
+                                        <a href="{{ url('courses') }}?course={{ $category->slug }}">
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -69,7 +80,7 @@
                             <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('contact') }}"><i class="fa-light fa-location-dot" style="margin-right:8px;"></i>Dharashiv</a></li>
                             <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('contact') }}"><i class="fa-light fa-location-dot" style="margin-right:8px;"></i>Chhatrapati Sambhajinagar</a></li>
                         </ul>
-                        <a href="{{ url('donate') }}" class="ed-primary-btn mt-20">Support a Learner</a>
+                        <a href="{{ url('donate') }}" class="ed-white-btn mt-20">Support a Learner</a>
                     </div>
                 </div>
 

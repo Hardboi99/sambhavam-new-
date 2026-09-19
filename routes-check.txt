@@ -1,0 +1,8 @@
+
+  GET|HEAD   admin/dashboard .................................................................................................................... admin.dashboard › Admin\AdminDashboardController@index
+  GET|HEAD   admin/login ................................................................................................................. admin.login › Auth\AdminAuthenticatedSessionController@create
+  POST       admin/login ....................................................................................................................... admin. › Auth\AdminAuthenticatedSessionController@store
+  POST       admin/logout .............................................................................................................. admin.logout › Auth\AdminAuthenticatedSessionController@destroy
+
+                                                                                                                                                                                      Showing [4] routes
+

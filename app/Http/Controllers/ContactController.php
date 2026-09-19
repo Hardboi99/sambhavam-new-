@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class ContactController extends Controller
 {
-    public function contact(){
+    public function contact()
+    {
         return view('contact');
     }
 
@@ -25,7 +29,11 @@ class ContactController extends Controller
             'message' => 'required|string|max:2000',
         ]);
 
-        // TODO: send mail / store in DB using $validated
+        try {
+            Mail::to('enquiry@sambhavam.org')->send(new ContactMail($validated));
+        } catch (\Exception $e) {
+            Log::error('Contact form email failed: ' . $e->getMessage());
+        }
 
         return redirect()->route('contact')->with('success', 'Thanks! We\'ll get back to you shortly.');
     }

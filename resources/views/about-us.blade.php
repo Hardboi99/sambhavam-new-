@@ -24,7 +24,7 @@
             <div class="row boxx">
                 <div class="col-xl-6 col-lg-12">
                     <div class="about-img-wrap wow fade-in-left h-100" data-wow-delay="400ms">
-                            <img src="{{ asset('images/about/about-img-1.jpg') }}" alt="Sambhavam Foundation">
+                            <img class="my-2 rounded-2" src="{{ asset('images/about/about-img-1.jpg') }}" alt="Sambhavam Foundation">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-12 my-auto">
