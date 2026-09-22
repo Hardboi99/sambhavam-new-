@@ -62,27 +62,27 @@ body {
 
 .impact-card {
     background: #ffffff;
-    border: 1px solid #e5e5e0;
-    border-top: 3px solid var(--sambhavam-orange);
-    border-radius: 12px;
-    padding: 1.5rem;
+    border: 1px solid #e8edf3;
+    border-radius: 14px;
+    padding: 2rem 1.4rem;
     height: 100%;
-    transition: box-shadow 0.2s ease;
+    transition: all 0.25s ease;
 }
 
 .impact-card:hover {
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 14px 30px rgba(11, 45, 92, 0.1);
 }
 
 .impact-card h3 {
-    color: var(--sambhavam-teal);
-    font-size: 1.2rem;
-    font-weight: 600;
+    color: #0b2545;
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 .impact-card p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
     margin-top: 0.5rem;
     margin-bottom: 0;
 }

@@ -11,15 +11,15 @@
 
         <!-- CSS here -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/venobox.min.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/keyframe-animation.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/odometer.min.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/swiper.min.css') }} ">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/venobox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/keyframe-animation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/odometer.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}?v={{ filemtime(public_path('css/main.css')) }}">
 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

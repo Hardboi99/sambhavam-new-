@@ -14,19 +14,19 @@
 
     <!-- CSS here -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/venobox.min.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/keyframe-animation.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/odometer.min.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/swiper.min.css') }} ">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/venobox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/keyframe-animation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/odometer.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}?v={{ filemtime(public_path('css/main.css')) }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     {{-- Page-specific extra CSS (e.g. a page that only needs a small tweak) --}}
     @stack('styles')
@@ -42,18 +42,18 @@
     @include('partials.footer')
 
     <!-- JS here -->
-    <script src="{{ asset('js/vendor/jquary-3.6.0.min.js') }} "></script>
+    <script src="{{ asset('js/vendor/jquary-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
-    <script src="{{ asset('js/vendor/bootstrap-bundle.js') }} "></script>
-    <script src="{{ asset('js/vendor/jquery.isotope.js') }} "></script>
-    <script src="{{ asset('js/vendor/waypoints.min.js') }} "></script>
-    <script src="{{ asset('js/vendor/moment.min.js') }} "></script>
-    <script src="{{ asset('js/vendor/daterangepicker.min.js') }} "></script>
-    <script src="{{ asset('js/vendor/venobox.min.js') }} "></script>
-    <script src="{{ asset('js/vendor/odometer.min.js') }} "></script>
-    <script src="{{ asset('js/vendor/countdown.js') }} "></script>
-    <script src="{{ asset('js/vendor/meanmenu.js') }} "></script>
-    <script src="{{ asset('js/vendor/smooth-scroll.js') }} "></script>
+    <script src="{{ asset('js/vendor/bootstrap-bundle.js') }}"></script>
+    <script src="{{ asset('js/vendor/jquery.isotope.js') }}"></script>
+    <script src="{{ asset('js/vendor/waypoints.min.js') }}"></script>
+    <script src="{{ asset('js/vendor/moment.min.js') }}"></script>
+    <script src="{{ asset('js/vendor/daterangepicker.min.js') }}"></script>
+    <script src="{{ asset('js/vendor/venobox.min.js') }}"></script>
+    <script src="{{ asset('js/vendor/odometer.min.js') }}"></script>
+    <script src="{{ asset('js/vendor/countdown.js') }}"></script>
+    <script src="{{ asset('js/vendor/meanmenu.js') }}"></script>
+    <script src="{{ asset('js/vendor/smooth-scroll.js') }}"></script>
     <script src="{{ asset('js/vendor/imagesloaded-pkgd.js') }}"></script>
     <script src="{{ asset('js/vendor/wow.min.js') }}"></script>
     <script src="{{ asset('js/vendor/jquery.carouselTicker.js') }}"></script>

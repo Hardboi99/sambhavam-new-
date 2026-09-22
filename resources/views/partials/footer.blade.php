@@ -35,8 +35,9 @@
                         <h3 class="widget-header">About Sambhavam</h3>
                         <ul class="footer-list">
                             <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('about-us') }}">About Us</a></li>
-                            <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('about') }}#academy">Sambhavam Academy</a></li>
-                            <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('about') }}#impact">Our Impact Ecosystem</a></li>
+                            <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('certificates') }}">Certificates &amp; Accreditations</a></li>
+                            <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('/') }}#academy">Sambhavam Academy</a></li>
+                            <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('impact-ecosystem') }}">Our Impact Ecosystem</a></li>
                             <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('careers') }}">Careers</a></li>
                             <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('contact') }}">Become a Mentor</a></li>
                             <li><i class="fa fa-chevron-circle-right"></i><a href="{{ url('contact') }}">Volunteer With Us</a></li>

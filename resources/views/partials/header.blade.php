@@ -28,6 +28,7 @@
                                     <a href="{{ url('about-us') }}">About <i class="fa fa-chevron-down"></i></a>
                                     <ul>
                                         <li><a href="{{ url('about-us') }}">About Us</a></li>
+                                        <li><a href="{{ url('certificates') }}">Certificates &amp; Accreditations</a></li>
                                         <li><a href="{{ url('impact-ecosystem') }}">Our Impact Ecosystem</a></li>
                                         <li><a href="{{ url('leadership-team') }}">Leadership Team</a></li>
                                         <li><a href="{{ url('faculty') }}">Faculty</a></li>
@@ -77,7 +78,6 @@
                                 <li class="menu-item-has-children">
                                     <a href="{{ url('impact-ecosystem') }}">Social Impact Programmes <i class="fa fa-chevron-down"></i></a>
                                     <ul>
-                                        <li><a href="{{ url('education-skills-future-readiness') }}">Education, Skills and Future Readiness</a></li>
                                         <li><a href="{{ url('climate-environment-sustainable-development') }}">Climate, Environment and Sustainable Development</a></li>
                                         <li><a href="{{ url('innovation-livelihoods-inclusive-empowerment') }}">Innovation, Livelihoods and Inclusive Empowerment</a></li>
                                     </ul>
@@ -154,7 +154,7 @@
                         @if($category->courses->count())
                             <div class="academic-dropdown">
                                 @foreach ($category->courses as $course)
-                                    <a href="{{ url('course-details') }}?course={{ $course->slug }}">
+                                    <a href="{{ url('course-details') }}?course={{ $course->slug }}" class="{{ request('course') === $course->slug ? 'active' : '' }}">
                                         {{ $course->title }}
                                     </a>
                                 @endforeach

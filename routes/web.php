@@ -29,6 +29,7 @@ use App\Http\Controllers\MadhukarSnapController;
 use App\Http\Controllers\SantoshController;
 use App\Http\Controllers\DeeptiController;
 use App\Http\Controllers\EnrollmentController;
+use App\Http\Controllers\CertificateController;
 
 use App\Http\Controllers\Admin\EnquiryController as AdminEnquiryController;
 
@@ -36,6 +37,7 @@ require __DIR__.'/admin_auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [AboutController::class, 'about'])->name('about-us');
+Route::get('/certificates', [CertificateController::class, 'index'])->name('certificates');
 Route::get('/faculty', [facultyController::class, 'faculty'])->name('faculty');
 Route::get('/leadership-team', [LeadershipTeam::class, 'leadership'])->name('leadership-team');
 Route::get('/courses', [CoursesController::class, 'index'])->name('courses');

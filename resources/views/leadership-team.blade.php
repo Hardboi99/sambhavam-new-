@@ -176,24 +176,6 @@
 
         <div class="leader-grid">
 
-            <!-- ================= Dr. Madhukar Gumble ================= -->
-            <div class="leader-card">
-                <div class="leader-photo-wrap">
-                    <img class="leader-photo" src="{{ asset('images/faculty/madhukar_gumble.png') }}" alt="Dr. Madhukar Gumble">
-                </div>
-                <div class="leader-name">Dr. Madhukar Gumble</div>
-                <div class="leader-role">Director | Sambhavam Foundation</div>
-                <p class="leader-bio">Educationist &amp; social development leader with over four decades of experience in grassroots development. Founder of Apeksha Homoeo Society (AHS).</p>
-                <!-- TODO: point href at the real profile page once it exists -->
-                <a href="{{url ('madhukar-gumble') }}" class="leader-readmore">
-                    Read More
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </div>
-
             <!-- ================= Dr. Madhukar Sanap ================= -->
             <div class="leader-card">
                 <div class="leader-photo-wrap">
@@ -210,6 +192,7 @@
                     </svg>
                 </a>
             </div>
+
 
             <!-- ================= Mr. Santosh Kumar ================= -->
             <div class="leader-card">
@@ -244,6 +227,24 @@
                     </svg>
                 </a>
             </div>
+                        <!-- ================= Dr. Madhukar Gumble ================= -->
+            <div class="leader-card">
+                <div class="leader-photo-wrap">
+                    <img class="leader-photo" src="{{ asset('images/faculty/madhukar_gumble.png') }}" alt="Dr. Madhukar Gumble">
+                </div>
+                <div class="leader-name">Dr. Madhukar Gumble</div>
+                <div class="leader-role">Director | Sambhavam Foundation</div>
+                <p class="leader-bio">Educationist &amp; social development leader with over four decades of experience in grassroots development. Founder of Apeksha Homoeo Society (AHS).</p>
+                <!-- TODO: point href at the real profile page once it exists -->
+                <a href="{{url ('madhukar-gumble') }}" class="leader-readmore">
+                    Read More
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
 
         </div>
     </div>
