@@ -215,7 +215,7 @@
         </div>
     </section>
 
-    <section class="climate-section climate-journey" aria-labelledby="climate-journey-title">
+    <section class="climate-section climate-journey" aria-labelledby="climate-journey-title" data-climate-reveal>
         <div class="container">
             <header class="climate-section-head" data-climate-reveal>
                 <span class="climate-eyebrow"><i class="fa fa-road" aria-hidden="true"></i> Strategic Pathway</span>
@@ -226,7 +226,7 @@
                 <div class="climate-timeline__track" aria-hidden="true"><span></span></div>
                 <ol class="climate-timeline__grid">
                     @foreach ($journeySteps as $k => $step)
-                        <li class="climate-timeline__item" data-climate-reveal data-climate-delay="{{ $k * 100 }}">
+                        <li class="climate-timeline__item" data-climate-reveal data-climate-delay="{{ 250 + $k * 220 }}">
                             <span class="climate-timeline__node">{{ $step['num'] }}</span>
                             <article class="climate-timeline__card">
                                 <span class="climate-timeline__phase">{{ $step['subtitle'] }}</span>
