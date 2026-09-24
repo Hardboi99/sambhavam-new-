@@ -33,6 +33,9 @@ class CourseController extends Controller
             'curriculum' => 'nullable|string',
             'key_features' => 'nullable|string',
             'eligibility_fees' => 'nullable|string',
+            'faqs' => 'nullable|array',
+            'faqs.*.question' => 'nullable|string',
+            'faqs.*.answer' => 'nullable|string',
             'duration' => 'nullable|string|max:100',
             'mode' => 'required|in:offline,online',
             'price' => 'nullable|numeric|min:0',
@@ -43,6 +46,21 @@ class CourseController extends Controller
         ]);
 
         $data['slug'] = Str::slug($data['title']);
+
+        if (isset($data['faqs']) && is_array($data['faqs'])) {
+            $filteredFaqs = [];
+            foreach ($data['faqs'] as $faq) {
+                if (!empty(trim($faq['question'] ?? '')) || !empty(trim($faq['answer'] ?? ''))) {
+                    $filteredFaqs[] = [
+                        'question' => trim($faq['question'] ?? ''),
+                        'answer' => trim($faq['answer'] ?? ''),
+                    ];
+                }
+            }
+            $data['faqs'] = !empty($filteredFaqs) ? $filteredFaqs : null;
+        } else {
+            $data['faqs'] = null;
+        }
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('courses', 'public');
@@ -78,6 +96,9 @@ class CourseController extends Controller
             'curriculum' => 'nullable|string',
             'key_features' => 'nullable|string',
             'eligibility_fees' => 'nullable|string',
+            'faqs' => 'nullable|array',
+            'faqs.*.question' => 'nullable|string',
+            'faqs.*.answer' => 'nullable|string',
             'duration' => 'nullable|string|max:100',
             'mode' => 'required|in:offline,online',
             'price' => 'nullable|numeric|min:0',
@@ -90,6 +111,21 @@ class CourseController extends Controller
 
         $data['slug'] = Str::slug($data['title']);
         $data['is_active'] = $request->has('is_active');
+
+        if (isset($data['faqs']) && is_array($data['faqs'])) {
+            $filteredFaqs = [];
+            foreach ($data['faqs'] as $faq) {
+                if (!empty(trim($faq['question'] ?? '')) || !empty(trim($faq['answer'] ?? ''))) {
+                    $filteredFaqs[] = [
+                        'question' => trim($faq['question'] ?? ''),
+                        'answer' => trim($faq['answer'] ?? ''),
+                    ];
+                }
+            }
+            $data['faqs'] = !empty($filteredFaqs) ? $filteredFaqs : null;
+        } else {
+            $data['faqs'] = null;
+        }
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('courses', 'public');

@@ -47,10 +47,10 @@
             </div>
 
             <div class="swiper-slide">
-                <img src="{{ asset('images/home/sambhavam.jpeg') }}"
+                <img src="{{ asset('images/home/main.jpeg') }}"
                      class="d-md-block d-none bannerwidth"
                      alt="Sambhavam Banner 5">
-                <img src="{{ asset('images/home/sambhavam.jpeg') }}"
+                <img src="{{ asset('images/home/main.jpeg') }}"
                      class="d-md-none d-block bannerwidth"
                      alt="Sambhavam Banner mobile 5">
             </div>
@@ -89,7 +89,7 @@
 
                         <!-- Main Circular Frame -->
                         <div class="founder-photo-frame">
-                            <img src="{{ asset('images/about/write.png') }}" alt="Dr. Madhukar Sanap - Founder & Managing Director">
+                            <img src="{{ asset('images/about/_MG_1167 copy_.jpg') }}" alt="Dr. Madhukar Sanap - Founder & Managing Director">
                         </div>
 
                         <!-- Floating Accent Badge 1: Top-Right -->
@@ -317,18 +317,28 @@
 
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 d-flex">
                         <div class="sambhavam-course-card w-100 wow fade-in-bottom" data-wow-delay="{{ 150 + ($i % 3) * 100 }}ms">
-                            <!-- Card Header (Solid Theme Block) -->
+                            <!-- Card Header with Icon Badge & Eyebrow -->
                             <div class="scc-header {{ $vData['banner'] }}">
+                                <div class="scc-icon-circle">
+                                    <i class="{{ $vData['icon'] }}"></i>
+                                </div>
+                                <span class="scc-eyebrow">{{ $vData['eyebrow'] }}</span>
                                 <h3 class="scc-header-title">{{ $vData['title'] }}</h3>
+                                <div class="scc-header-line"></div>
                             </div>
 
-                            <!-- Card Body with Scrollable Checklist -->
+                            <!-- Card Body with Meta Tags & Scrollable Checklist -->
                             <div class="scc-body">
+                                <div class="scc-meta-bar">
+                                    <span class="scc-meta-pill"><i class="fa fa-star text-gold"></i> Flagship Path</span>
+                                    <span class="scc-meta-pill"><i class="fa fa-users"></i> Mentor-Led</span>
+                                </div>
+
                                 <div class="scc-scroll-container">
                                     <ul class="scc-checklist">
                                         @foreach ($vData['highlights'] as $highlight)
                                             <li>
-                                                <i class="fa fa-check-square scc-check-icon"></i>
+                                                <i class="fa fa-check-circle scc-check-icon"></i>
                                                 <span>{{ $highlight }}</span>
                                             </li>
                                         @endforeach
@@ -336,31 +346,32 @@
                                         @if($category->courses->count())
                                             @foreach ($category->courses as $course)
                                                 <li>
-                                                    <i class="fa fa-check-square scc-check-icon"></i>
+                                                    <i class="fa fa-check-circle scc-check-icon"></i>
                                                     <span>{{ $course->title }}</span>
                                                 </li>
                                             @endforeach
                                         @endif
 
                                         <li>
-                                            <i class="fa fa-check-square scc-check-icon"></i>
+                                            <i class="fa fa-check-circle scc-check-icon"></i>
                                             <span>Subject notes &amp; comprehensive study material</span>
                                         </li>
                                         <li>
-                                            <i class="fa fa-check-square scc-check-icon"></i>
+                                            <i class="fa fa-check-circle scc-check-icon"></i>
                                             <span>Live interactive sessions &amp; recorded lectures</span>
                                         </li>
                                         <li>
-                                            <i class="fa fa-check-square scc-check-icon"></i>
+                                            <i class="fa fa-check-circle scc-check-icon"></i>
                                             <span>Regular mock tests &amp; doubt clearing</span>
                                         </li>
                                     </ul>
                                 </div>
 
-                                <!-- Card Footer: Centered Pill Button -->
+                                <!-- Card Footer: Centered Pill Button with Arrow Icon -->
                                 <div class="scc-footer text-center">
                                     <a href="{{ url('courses') }}?course={{ $category->courses->first()?->slug ?? $category->slug }}" class="scc-pill-btn">
-                                        Know More
+                                        <span>Know More</span>
+                                        <i class="fa fa-arrow-right"></i>
                                     </a>
                                 </div>
                             </div>
@@ -370,10 +381,12 @@
             </div>
         </div>
     </section>
-    <!-- ./ programme-explorer -->
+    <!-- ./ programme-explorer -->  
 
     <style>
-    /* Scoped Refinements for Programme Explorer - Compact Scrollable Cards */
+    /* ======================================================== */
+    /* ENHANCED PROGRAMME EXPLORER CARDS                        */
+    /* ======================================================== */
     .programme-bg-overlay {
         position: absolute;
         inset: 0;
@@ -385,63 +398,135 @@
     }
     .sambhavam-course-card {
         background: #ffffff;
-        border-radius: 12px;
-        border: 1px solid #e2e8f0;
+        border-radius: 18px;
+        border: 1px solid rgba(226, 232, 240, 0.9);
         overflow: hidden;
         height: 100%;
         display: flex;
         flex-direction: column;
-        box-shadow: 0 6px 20px rgba(2, 20, 40, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        max-width: 360px;
+        box-shadow: 0 10px 30px rgba(3, 72, 97, 0.08);
+        transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+        max-width: 375px;
         margin: 0 auto;
+        position: relative;
     }
     .sambhavam-course-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 14px 30px rgba(2, 20, 40, 0.16);
-        border-color: rgba(1, 109, 119, 0.35);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 45px rgba(3, 72, 97, 0.18);
+        border-color: rgba(222, 182, 94, 0.6);
     }
     .scc-header {
-        padding: 38px 14px;
+        padding: 24px 18px 18px;
         text-align: center;
-        background: #3f7282;
         color: #ffffff;
+        position: relative;
+        overflow: hidden;
+    }
+    .scc-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 65%);
+        pointer-events: none;
     }
     .scc-banner-blue {
-        background: #365b6d;
+        background: linear-gradient(135deg, #034861 0%, #0a5874 100%);
     }
     .scc-banner-teal {
-        background: #3f7282;
+        background: linear-gradient(135deg, #016d77 0%, #158b98 100%);
     }
     .scc-banner-navy {
-        background: #2b4c5c;
+        background: linear-gradient(135deg, #16243a 0%, #283e5e 100%);
+    }
+    .scc-icon-circle {
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.16);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #deb65e;
+        margin-bottom: 10px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+    }
+    .sambhavam-course-card:hover .scc-icon-circle {
+        transform: scale(1.1) rotate(6deg);
+        background: rgba(255, 255, 255, 0.25);
+    }
+    .scc-eyebrow {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: #deb65e;
+        margin-bottom: 4px;
     }
     .scc-header-title {
-        font-size: 16.5px;
+        font-size: 18px;
         font-weight: 700;
         color: #ffffff;
-        margin: 0;
-        line-height: 1.3;
-        letter-spacing: 0.2px;
+        margin: 0 0 10px;
+        line-height: 1.25;
+        letter-spacing: -0.2px;
+    }
+    .scc-header-line {
+        width: 45px;
+        height: 3px;
+        background: linear-gradient(90deg, #deb65e, #f59e0b);
+        border-radius: 3px;
+        margin: 0 auto;
     }
     .scc-body {
-        padding: 18px 14px 16px;
+        padding: 18px 16px 16px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         flex: 1;
-        background: #f4f8fa url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="%23016d77" fill-opacity="0.03" fill-rule="evenodd"><path d="M0 40L40 0H20L0 20M40 40V20L20 40"/></g></svg>');
+        background: #f8fafc url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="%23016d77" fill-opacity="0.02" fill-rule="evenodd"><path d="M0 40L40 0H20L0 20M40 40V20L20 40"/></g></svg>');
+    }
+    .scc-meta-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+    .scc-meta-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        padding: 3px 10px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #475569;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+    .scc-meta-pill i.text-gold {
+        color: #d97706;
     }
     .scc-scroll-container {
-        max-height: 155px;
+        max-height: 160px;
         overflow-y: auto;
-        padding-right: 8px;
+        padding-right: 6px;
         margin-bottom: 16px;
         scrollbar-width: thin;
         scrollbar-color: #deb65e #e2e8f0;
     }
     .scc-scroll-container::-webkit-scrollbar {
-        width: 6px;
+        width: 5px;
     }
     .scc-scroll-container::-webkit-scrollbar-track {
         background: #e2e8f0;
@@ -462,48 +547,67 @@
     .scc-checklist li {
         display: flex;
         align-items: flex-start;
-        gap: 10px;
+        gap: 9px;
         font-size: 13px;
         font-weight: 600;
         color: #1e293b;
         line-height: 1.45;
-        margin-bottom: 10px;
+        margin-bottom: 9px;
+        padding: 4px 6px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease;
+    }
+    .scc-checklist li:hover {
+        background-color: rgba(1, 109, 119, 0.05);
     }
     .scc-checklist li:last-child {
         margin-bottom: 0;
     }
     .scc-check-icon {
-        color: #475569;
-        font-size: 15px;
+        color: #016d77;
+        font-size: 14px;
         margin-top: 2px;
         flex-shrink: 0;
     }
     .scc-footer {
-        padding-top: 4px;
+        padding-top: 6px;
         margin-top: auto;
     }
     .scc-pill-btn {
-        display: inline-block;
-        padding: 8px 28px;
-        background: #3f7282;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 9px 24px;
+        background: linear-gradient(135deg, #034861 0%, #016d77 100%);
         color: #ffffff !important;
         border-radius: 50px;
         font-size: 13.5px;
         font-weight: 600;
         text-decoration: none;
-        box-shadow: 0 4px 12px rgba(63, 114, 130, 0.2);
-        transition: all 0.25s ease;
+        box-shadow: 0 4px 14px rgba(1, 109, 119, 0.25);
+        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .scc-pill-btn i {
+        font-size: 12px;
+        transition: transform 0.25s ease;
     }
     .scc-pill-btn:hover {
-        background: #deb65e;
-        color: #ffffff !important;
+        background: linear-gradient(135deg, #deb65e 0%, #c99a3e 100%);
+        color: #043148 !important;
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(222, 182, 94, 0.35);
+        box-shadow: 0 6px 18px rgba(222, 182, 94, 0.45);
+        border-color: #deb65e;
+    }
+    .scc-pill-btn:hover i {
+        transform: translateX(4px);
     }
     @media (max-width: 767px) {
-        .scc-header { padding: 14px; }
-        .scc-body { padding: 16px 12px 14px; }
-        .scc-scroll-container { max-height: 140px; }
+        .scc-header { padding: 18px 14px 14px; }
+        .scc-body { padding: 14px 12px 14px; }
+        .scc-scroll-container { max-height: 145px; }
+        .scc-header-title { font-size: 16.5px; }
     }
     </style>
     <!-- ============================================= -->
@@ -743,91 +847,566 @@
     <!-- ============================================= -->
     <!-- SECTION: WHY SAMBHAVAM ACADEMY -->
     <!-- ============================================= -->
-    <section class="why-academy-section pt-80 pb-110" id="why-sambhavam">
-        <div class="container">
-            <div class="section-heading text-center mb-50">
-                <h4 class="sub-heading wow fade-in-bottom" data-wow-delay="200ms"><span class="heading-icon"><i class="fa fa-bolt"></i></span>Why Sambhavam Academy?</h4>
-                <h2 class="section-title wow fade-in-bottom" data-wow-delay="300ms">Empowering Minds. Shaping Leaders.</h2>
-                <p class="wow fade-in-bottom" data-wow-delay="400ms" style="max-width:720px;margin:0 auto;">Our multidisciplinary approach combines conceptual excellence, personalized mentorship, future technologies and leadership building to nurture well-rounded achievers.</p>
+    <section class="why-academy-section pt-90 pb-110" id="why-sambhavam">
+        <!-- Ambient decorative background glow -->
+        <div class="why-ambient-glow why-glow-1"></div>
+        <div class="why-ambient-glow why-glow-2"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="section-heading text-center mb-55">
+                <div class="d-inline-flex align-items-center gap-2 why-section-badge mb-3 wow fade-in-bottom" data-wow-delay="150ms">
+                    <span class="why-badge-pulse"><i class="fa fa-bolt"></i></span>
+                    <span class="why-badge-text">The Sambhavam Advantage</span>
+                </div>
+                <h2 class="section-title wow fade-in-bottom" data-wow-delay="250ms">
+                    Empowering Minds. <span class="why-title-gradient">Shaping Leaders.</span>
+                </h2>
+                <p class="wow fade-in-bottom" data-wow-delay="350ms" style="max-width: 740px; margin: 0 auto; color: #526071; font-size: 16px; line-height: 1.7;">
+                    Our multidisciplinary approach combines conceptual excellence, personalized mentorship, future technologies and leadership building to nurture well-rounded achievers.
+                </p>
             </div>
 
             @php
                 $whyCards = [
                     [
                         'num' => '01',
-                        'theme' => 'why-card-blue',
                         'icon' => 'fa fa-user-circle-o',
+                        'tag' => 'Adaptive Pacing',
+                        'theme' => 'card-theme-teal',
                         'title' => 'Personalized Learning',
-                        'desc' => 'Pathways designed around each student’s goals, strengths and individual pace.',
+                        'desc' => 'Tailored learning pathways mapped directly to individual strengths, target milestones, and personal pace.',
                     ],
                     [
                         'num' => '02',
-                        'theme' => 'why-card-teal',
                         'icon' => 'fa fa-graduation-cap',
+                        'tag' => '1-on-1 Guidance',
+                        'theme' => 'card-theme-navy',
                         'title' => 'Expert Mentorship',
-                        'desc' => 'Guidance from experienced educators, civil servants, and domain leaders.',
+                        'desc' => 'Direct guidance and strategic counsel from experienced educators, civil servants, and domain leaders.',
                     ],
                     [
                         'num' => '03',
-                        'theme' => 'why-card-green',
                         'icon' => 'fa fa-laptop',
+                        'tag' => 'Smart Classrooms',
+                        'theme' => 'card-theme-cyan',
                         'title' => 'Technology-Enabled',
-                        'desc' => 'Smart classrooms, interactive digital content, and seamless hybrid access.',
+                        'desc' => 'State-of-the-art digital infrastructure, interactive virtual studios, and seamless hybrid classroom access.',
                     ],
                     [
                         'num' => '04',
-                        'theme' => 'why-card-orange',
                         'icon' => 'fa fa-magic',
+                        'tag' => 'Predictive Analytics',
+                        'theme' => 'card-theme-gold',
                         'title' => 'AI-Enabled Insights',
-                        'desc' => 'Adaptive assessments, personalized recommendations and predictive insights.',
+                        'desc' => 'Adaptive assessment intelligence, weakness diagnostics, and personalized predictive performance insights.',
                     ],
                     [
                         'num' => '05',
-                        'theme' => 'why-card-blue',
                         'icon' => 'fa fa-lightbulb-o',
+                        'tag' => 'First-Principles Core',
+                        'theme' => 'card-theme-amber',
                         'title' => 'Conceptual Excellence',
-                        'desc' => 'Deep understanding, practical problem-solving and analytical thinking.',
+                        'desc' => 'Deep first-principles mastery, structured critical reasoning, and practical analytical problem-solving.',
                     ],
                     [
                         'num' => '06',
-                        'theme' => 'why-card-teal',
                         'icon' => 'fa fa-briefcase',
+                        'tag' => 'Competitive Edge',
+                        'theme' => 'card-theme-blue',
                         'title' => 'Career Preparation',
-                        'desc' => 'Rigorous alignment with competitive exams, higher education and career paths.',
+                        'desc' => 'Rigorous curriculum alignment for competitive examinations, top-tier admissions, and high-impact careers.',
                     ],
                     [
                         'num' => '07',
-                        'theme' => 'why-card-green',
-                        'icon' => 'fa fa-compass',
+                        'icon' => 'fa fa-shield',
+                        'tag' => 'Character & Impact',
+                        'theme' => 'card-theme-emerald',
                         'title' => 'Leadership & Ethics',
-                        'desc' => 'Confidence, public speaking, critical thinking, and responsible decision-making.',
+                        'desc' => 'Confidence building, executive public speaking, critical reasoning, and responsible ethical decision-making.',
                     ],
                     [
                         'num' => '08',
-                        'theme' => 'why-card-orange',
                         'icon' => 'fa fa-line-chart',
+                        'tag' => 'Milestone Tracking',
+                        'theme' => 'card-theme-indigo',
                         'title' => 'Continuous Tracking',
-                        'desc' => 'Real-time performance analytics, milestone reviews and parent engagement.',
+                        'desc' => 'Real-time performance dashboards, regular milestone evaluations, and proactive parent engagement loops.',
                     ],
                 ];
             @endphp
 
-            <div class="row gy-4 justify-content-center">
+            <div class="row g-4 justify-content-center">
                 @foreach ($whyCards as $idx => $card)
-                    <div class="col-xl-3 col-lg-3 col-md-6 d-flex">
-                        <div class="why-card {{ $card['theme'] }} w-100 wow fade-in-bottom" data-wow-delay="{{ 120 + ($idx % 4) * 80 }}ms">
-                            <span class="why-card-num">{{ $card['num'] }}</span>
-                            <div class="why-icon-wrap">
-                                <div class="why-icon"><i class="{{ $card['icon'] }}"></i></div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 d-flex">
+                        <div class="why-unique-card {{ $card['theme'] }} w-100 wow fade-in-bottom" data-wow-delay="{{ 100 + ($idx % 4) * 80 }}ms">
+                            <!-- Watermark Icon in background -->
+                            <div class="why-card-watermark">
+                                <i class="{{ $card['icon'] }}"></i>
                             </div>
-                            <h4 class="title">{{ $card['title'] }}</h4>
-                            <p>{{ $card['desc'] }}</p>
+
+                            <!-- Card Top Bar: Icon pod + Step indicator -->
+                            <div class="why-card-topbar">
+                                <div class="why-icon-pod">
+                                    <div class="why-icon-halo"></div>
+                                    <i class="{{ $card['icon'] }}"></i>
+                                </div>
+                                <div class="why-pill-step">
+                                    <span class="why-step-dot"></span>
+                                    <span>Pillar {{ $card['num'] }}</span>
+                                </div>
+                            </div>
+
+                            <!-- Card Middle Content -->
+                            <div class="why-card-content">
+                                <h4 class="why-card-heading">{{ $card['title'] }}</h4>
+                                <p class="why-card-text">{{ $card['desc'] }}</p>
+                            </div>
+
+                            <!-- Card Footer: Tag & Accent bar -->
+                            <div class="why-card-bottom">
+                                <div class="why-card-tag-pill">
+                                    <i class="fa fa-check-circle me-1"></i> {{ $card['tag'] }}
+                                </div>
+                                <div class="why-accent-line"></div>
+                            </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
     </section>
+
+    <style>
+    /* ======================================================== */
+    /* BESPOKE THEMED DESIGN FOR WHY SAMBHAVAM ACADEMY SECTION */
+    /* ======================================================== */
+    .why-academy-section {
+        background: linear-gradient(180deg, #f8fafc 0%, #edf4f8 50%, #f8fafc 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Ambient background lighting */
+    .why-ambient-glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.6;
+    }
+    .why-glow-1 {
+        top: 5%;
+        left: -10%;
+        width: 480px;
+        height: 480px;
+        background: radial-gradient(circle, rgba(1, 109, 119, 0.12) 0%, transparent 70%);
+    }
+    .why-glow-2 {
+        bottom: 10%;
+        right: -8%;
+        width: 520px;
+        height: 520px;
+        background: radial-gradient(circle, rgba(222, 182, 94, 0.15) 0%, transparent 70%);
+    }
+
+    /* Section Header Custom Elements */
+    .why-section-badge {
+        background: #ffffff;
+        border: 1px solid rgba(1, 109, 119, 0.18);
+        border-radius: 30px;
+        padding: 6px 18px 6px 8px;
+        box-shadow: 0 4px 14px rgba(3, 72, 97, 0.06);
+    }
+    .why-badge-pulse {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #016d77 0%, #deb65e 100%);
+        color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        box-shadow: 0 2px 8px rgba(1, 109, 119, 0.35);
+    }
+    .why-badge-text {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        color: #016d77;
+        text-transform: uppercase;
+    }
+    .why-title-gradient {
+        background: linear-gradient(135deg, #016d77 0%, #034861 60%, #deb65e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Unique Pillar Cards */
+    .why-unique-card {
+        background: #ffffff;
+        border: 1px solid #e3ebf2;
+        border-radius: 20px;
+        padding: 28px 24px 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 26px rgba(3, 72, 97, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+        transition: all 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+        z-index: 2;
+    }
+    .why-unique-card:hover {
+        transform: translateY(-8px);
+        background: #ffffff;
+        border-color: rgba(1, 109, 119, 0.35);
+        box-shadow: 0 20px 42px -10px rgba(3, 72, 97, 0.14), 0 0 0 1px rgba(1, 109, 119, 0.1);
+    }
+
+    /* Ambient Watermark in card */
+    .why-card-watermark {
+        position: absolute;
+        right: -10px;
+        bottom: -15px;
+        font-size: 88px;
+        color: #034861;
+        opacity: 0.035;
+        transition: all 0.4s ease;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .why-unique-card:hover .why-card-watermark {
+        opacity: 0.08;
+        transform: scale(1.15) rotate(-6deg);
+        color: #016d77;
+    }
+
+    /* Card Top Bar */
+    .why-card-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 22px;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* 3D Icon Pod */
+    .why-icon-pod {
+        width: 52px;
+        height: 52px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        position: relative;
+        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 8px 18px rgba(3, 72, 97, 0.12);
+    }
+    .why-icon-halo {
+        position: absolute;
+        inset: -3px;
+        border-radius: 18px;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        z-index: -1;
+    }
+    .why-unique-card:hover .why-icon-pod {
+        transform: scale(1.1) translateY(-2px);
+    }
+    .why-unique-card:hover .why-icon-halo {
+        opacity: 0.6;
+    }
+
+    /* Step Badge */
+    .why-pill-step {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #64748b;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+    }
+    .why-step-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #94a3b8;
+        transition: all 0.3s ease;
+    }
+    .why-unique-card:hover .why-pill-step {
+        background: rgba(1, 109, 119, 0.08);
+        border-color: rgba(1, 109, 119, 0.25);
+        color: #016d77;
+    }
+    .why-unique-card:hover .why-step-dot {
+        background: #deb65e;
+        box-shadow: 0 0 8px #deb65e;
+    }
+
+    /* Card Content */
+    .why-card-content {
+        position: relative;
+        z-index: 2;
+        flex: 1;
+    }
+    .why-card-heading {
+        font-size: 18px;
+        font-weight: 700;
+        color: #16243A;
+        margin-bottom: 10px;
+        line-height: 1.35;
+        transition: color 0.3s ease;
+    }
+    .why-unique-card:hover .why-card-heading {
+        color: #016d77;
+    }
+    .why-card-text {
+        font-size: 13.5px;
+        color: #596778;
+        line-height: 1.65;
+        margin-bottom: 20px;
+    }
+
+    /* Card Bottom */
+    .why-card-bottom {
+        position: relative;
+        z-index: 2;
+        padding-top: 14px;
+        border-top: 1px solid #edf2f7;
+    }
+    .why-card-tag-pill {
+        display: inline-flex;
+        align-items: center;
+        font-size: 11.5px;
+        font-weight: 600;
+        padding: 5px 12px;
+        border-radius: 20px;
+        letter-spacing: 0.2px;
+        transition: all 0.3s ease;
+    }
+    .why-accent-line {
+        position: absolute;
+        bottom: -22px;
+        left: -24px;
+        right: -24px;
+        height: 3.5px;
+        opacity: 0;
+        transform: scaleX(0.2);
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .why-unique-card:hover .why-accent-line {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    /* ======================================================== */
+    /* THEME VARIATIONS FOR INDIVIDUAL PILLARS (Brand Palette) */
+    /* ======================================================== */
+    /* Teal Theme */
+    .card-theme-teal .why-icon-pod {
+        background: linear-gradient(135deg, #016d77 0%, #034861 100%);
+        color: #ffffff;
+    }
+    .card-theme-teal .why-icon-halo {
+        background: radial-gradient(circle, rgba(1, 109, 119, 0.4) 0%, transparent 70%);
+    }
+    .card-theme-teal .why-card-tag-pill {
+        background: rgba(1, 109, 119, 0.08);
+        color: #016d77;
+        border: 1px solid rgba(1, 109, 119, 0.15);
+    }
+    .card-theme-teal:hover .why-card-tag-pill {
+        background: #016d77;
+        color: #ffffff;
+        border-color: #016d77;
+    }
+    .card-theme-teal .why-accent-line {
+        background: linear-gradient(90deg, #016d77 0%, #83c5be 100%);
+    }
+
+    /* Navy Theme */
+    .card-theme-navy .why-icon-pod {
+        background: linear-gradient(135deg, #034861 0%, #16243a 100%);
+        color: #deb65e;
+    }
+    .card-theme-navy .why-icon-halo {
+        background: radial-gradient(circle, rgba(3, 72, 97, 0.4) 0%, transparent 70%);
+    }
+    .card-theme-navy .why-card-tag-pill {
+        background: rgba(3, 72, 97, 0.08);
+        color: #034861;
+        border: 1px solid rgba(3, 72, 97, 0.15);
+    }
+    .card-theme-navy:hover .why-card-tag-pill {
+        background: #034861;
+        color: #ffffff;
+        border-color: #034861;
+    }
+    .card-theme-navy .why-accent-line {
+        background: linear-gradient(90deg, #034861 0%, #deb65e 100%);
+    }
+
+    /* Cyan Theme */
+    .card-theme-cyan .why-icon-pod {
+        background: linear-gradient(135deg, #028090 0%, #00a896 100%);
+        color: #ffffff;
+    }
+    .card-theme-cyan .why-icon-halo {
+        background: radial-gradient(circle, rgba(2, 128, 144, 0.4) 0%, transparent 70%);
+    }
+    .card-theme-cyan .why-card-tag-pill {
+        background: rgba(2, 128, 144, 0.08);
+        color: #028090;
+        border: 1px solid rgba(2, 128, 144, 0.15);
+    }
+    .card-theme-cyan:hover .why-card-tag-pill {
+        background: #028090;
+        color: #ffffff;
+        border-color: #028090;
+    }
+    .card-theme-cyan .why-accent-line {
+        background: linear-gradient(90deg, #028090 0%, #02c39a 100%);
+    }
+
+    /* Gold Theme */
+    .card-theme-gold .why-icon-pod {
+        background: linear-gradient(135deg, #c99b38 0%, #deb65e 100%);
+        color: #ffffff;
+    }
+    .card-theme-gold .why-icon-halo {
+        background: radial-gradient(circle, rgba(222, 182, 94, 0.5) 0%, transparent 70%);
+    }
+    .card-theme-gold .why-card-tag-pill {
+        background: rgba(222, 182, 94, 0.14);
+        color: #996e11;
+        border: 1px solid rgba(222, 182, 94, 0.3);
+    }
+    .card-theme-gold:hover .why-card-tag-pill {
+        background: #c99b38;
+        color: #ffffff;
+        border-color: #c99b38;
+    }
+    .card-theme-gold .why-accent-line {
+        background: linear-gradient(90deg, #c99b38 0%, #f4d06f 100%);
+    }
+
+    /* Amber Theme */
+    .card-theme-amber .why-icon-pod {
+        background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+        color: #ffffff;
+    }
+    .card-theme-amber .why-icon-halo {
+        background: radial-gradient(circle, rgba(217, 119, 6, 0.4) 0%, transparent 70%);
+    }
+    .card-theme-amber .why-card-tag-pill {
+        background: rgba(217, 119, 6, 0.09);
+        color: #b45309;
+        border: 1px solid rgba(217, 119, 6, 0.2);
+    }
+    .card-theme-amber:hover .why-card-tag-pill {
+        background: #d97706;
+        color: #ffffff;
+        border-color: #d97706;
+    }
+    .card-theme-amber .why-accent-line {
+        background: linear-gradient(90deg, #d97706 0%, #fbbf24 100%);
+    }
+
+    /* Blue Theme */
+    .card-theme-blue .why-icon-pod {
+        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+        color: #ffffff;
+    }
+    .card-theme-blue .why-icon-halo {
+        background: radial-gradient(circle, rgba(29, 78, 216, 0.4) 0%, transparent 70%);
+    }
+    .card-theme-blue .why-card-tag-pill {
+        background: rgba(29, 78, 216, 0.08);
+        color: #1d4ed8;
+        border: 1px solid rgba(29, 78, 216, 0.15);
+    }
+    .card-theme-blue:hover .why-card-tag-pill {
+        background: #1d4ed8;
+        color: #ffffff;
+        border-color: #1d4ed8;
+    }
+    .card-theme-blue .why-accent-line {
+        background: linear-gradient(90deg, #1d4ed8 0%, #60a5fa 100%);
+    }
+
+    /* Emerald Theme */
+    .card-theme-emerald .why-icon-pod {
+        background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+        color: #ffffff;
+    }
+    .card-theme-emerald .why-icon-halo {
+        background: radial-gradient(circle, rgba(15, 118, 110, 0.4) 0%, transparent 70%);
+    }
+    .card-theme-emerald .why-card-tag-pill {
+        background: rgba(15, 118, 110, 0.08);
+        color: #0f766e;
+        border: 1px solid rgba(15, 118, 110, 0.15);
+    }
+    .card-theme-emerald:hover .why-card-tag-pill {
+        background: #0f766e;
+        color: #ffffff;
+        border-color: #0f766e;
+    }
+    .card-theme-emerald .why-accent-line {
+        background: linear-gradient(90deg, #0f766e 0%, #2dd4bf 100%);
+    }
+
+    /* Indigo Theme */
+    .card-theme-indigo .why-icon-pod {
+        background: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
+        color: #ffffff;
+    }
+    .card-theme-indigo .why-icon-halo {
+        background: radial-gradient(circle, rgba(67, 56, 202, 0.4) 0%, transparent 70%);
+    }
+    .card-theme-indigo .why-card-tag-pill {
+        background: rgba(67, 56, 202, 0.08);
+        color: #4338ca;
+        border: 1px solid rgba(67, 56, 202, 0.15);
+    }
+    .card-theme-indigo:hover .why-card-tag-pill {
+        background: #4338ca;
+        color: #ffffff;
+        border-color: #4338ca;
+    }
+    .card-theme-indigo .why-accent-line {
+        background: linear-gradient(90deg, #4338ca 0%, #818cf8 100%);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 991px) {
+        .why-unique-card {
+            padding: 24px 20px 18px;
+        }
+        .why-card-heading {
+            font-size: 17px;
+        }
+        .why-card-text {
+            font-size: 13px;
+        }
+    }
+    @media (max-width: 575px) {
+        .why-unique-card {
+            padding: 22px 18px 16px;
+        }
+    }
+    </style>
 
     
 

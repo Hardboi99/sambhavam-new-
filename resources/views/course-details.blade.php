@@ -3,7 +3,30 @@
 @push('styles')
 <style>
     .course-details p {
-        color: #000000 !important;
+        color: #334155;
+    }
+    .course-details-content .tab-overview {
+        color: #334155;
+        font-size: 15px;
+        line-height: 1.75;
+    }
+    .course-details-content .tab-overview p {
+        color: #334155 !important;
+        font-size: 15px !important;
+        line-height: 1.75 !important;
+        margin-bottom: 14px !important;
+    }
+    .course-details-content .tab-overview strong,
+    .course-details-content .tab-overview b {
+        color: #034861 !important;
+        font-weight: 700 !important;
+    }
+    .course-details-content .tab-overview a {
+        color: #016d77;
+        text-decoration: underline;
+    }
+    .course-details-content .tab-overview a:hover {
+        color: #034861;
     }
 
     .course-tabs-sticky {
@@ -53,6 +76,77 @@
     .nav-link.active {
         background-color: #016d770d;  /* this is ~5% opacity teal — barely visible */
         color: #d59228;                /* orange text */
+    }
+
+    /* ======================================================== */
+    /* COURSE FAQS ACCORDION STYLES                             */
+    /* ======================================================== */
+    .course-faq-accordion {
+        --bs-accordion-border-color: #e2e8f0;
+    }
+    .faq-card-item {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        box-shadow: 0 2px 6px rgba(3, 72, 97, 0.04) !important;
+        transition: all 0.25s ease !important;
+    }
+    .faq-card-item:hover {
+        border-color: #cbd5e1 !important;
+        box-shadow: 0 4px 14px rgba(3, 72, 97, 0.08) !important;
+    }
+    .faq-card-item .accordion-button {
+        background-color: #ffffff !important;
+        color: #16243A !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        padding: 16px 20px !important;
+        border: none !important;
+        box-shadow: none !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .faq-card-item .accordion-button:not(.collapsed) {
+        background-color: #f0fdfa !important;
+        color: #016d77 !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+    }
+    .faq-card-item .accordion-button::after {
+        background-size: 14px !important;
+        transition: transform 0.25s ease !important;
+    }
+    .faq-q-indicator {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 26px;
+        padding: 0 8px;
+        border-radius: 20px;
+        background: rgba(1, 109, 119, 0.1);
+        color: #016d77;
+        font-size: 12px;
+        font-weight: 700;
+        margin-right: 12px;
+        flex-shrink: 0;
+    }
+    .faq-card-item .accordion-button:not(.collapsed) .faq-q-indicator {
+        background: #016d77;
+        color: #ffffff;
+    }
+    .faq-q-text {
+        flex: 1 1 auto;
+        text-align: left;
+    }
+    .faq-a-body {
+        padding: 18px 22px !important;
+        background-color: #ffffff !important;
+    }
+    .faq-a-content {
+        color: #334155 !important;
+        font-size: 14.5px !important;
+        line-height: 1.7 !important;
     }
 </style>
 
@@ -148,6 +242,13 @@
                                         </a>
                                     </li>
                                 @endif
+                                @if(!empty($course->faqs) && count($course->faqs) > 0)
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#faqs">
+                                            <i class="fa fa-question-circle"></i>FAQs
+                                        </a>
+                                    </li>
+                                @endif
 
                                 
                             </ul>
@@ -186,6 +287,33 @@
                                         </div>
                                     @endif
 
+                                    @if(!empty($course->faqs) && count($course->faqs) > 0)
+                                        <div id="faqs" class="tab-overview scroll-section">
+                                            <h3 class="title">Frequently Asked Questions</h3>
+                                            <div class="accordion course-faq-accordion mt-4" id="courseFaqAccordion">
+                                                @foreach($course->faqs as $index => $faq)
+                                                    @if(!empty($faq['question']) || !empty($faq['answer']))
+                                                        <div class="accordion-item faq-card-item mb-3">
+                                                            <h2 class="accordion-header" id="faqHeading{{ $index }}">
+                                                                <button class="accordion-button {{ $index > 0 ? 'collapsed' : '' }}" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse{{ $index }}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" aria-controls="faqCollapse{{ $index }}">
+                                                                    <span class="faq-q-indicator">Q{{ $index + 1 }}</span>
+                                                                    <span class="faq-q-text">{{ $faq['question'] }}</span>
+                                                                </button>
+                                                            </h2>
+                                                            <div id="faqCollapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" aria-labelledby="faqHeading{{ $index }}" data-bs-parent="#courseFaqAccordion">
+                                                                <div class="accordion-body faq-a-body">
+                                                                    <div class="faq-a-content">
+                                                                        {!! nl2br(e($faq['answer'])) !!}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
+
                                 </div>
                             </div>
                     </div>
@@ -202,9 +330,28 @@
                                     Enroll Now
                                 </button>
                             </a>
-                            <button type="button" class="ed-primary-btn w-100" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                                Talk to a Counsellor
-                            </button>
+                            @php
+                                $waPhone = '917718892626';
+                                $courseLink = url('course-details') . '?course=' . ($course->slug ?? '');
+                                $categoryName = $course->category->name ?? 'Academic Programme';
+                                $courseMode = ucfirst($course->mode ?? 'Offline');
+                                $durationText = $course->duration ? "• Duration: " . $course->duration . "\n" : "";
+
+                                $waText = "Hello Sambhavam Academy,\n\n"
+                                        . "I would like to speak with an academic counsellor regarding:\n"
+                                        . "📌 *" . $course->title . "*\n\n"
+                                        . "• Category: " . $categoryName . "\n"
+                                        . "• Mode: " . $courseMode . "\n"
+                                        . $durationText
+                                        . "• Course Link: " . $courseLink . "\n\n"
+                                        . "Please guide me on admissions, syllabus, fee structure, and upcoming batch schedules. Thank you!";
+                                $whatsappUrl = 'https://wa.me/' . $waPhone . '?text=' . urlencode($waText);
+                            @endphp
+                            <a href="{{ $whatsappUrl }}" target="_blank" rel="noopener noreferrer" class="text-decoration-none d-block">
+                                <button type="button" class="ed-primary-btn w-100 d-flex align-items-center justify-content-center gap-2">
+                                    <i class="fa fa-whatsapp" style="font-size: 16px;"></i> Talk to a Counsellor
+                                </button>
+                            </a>
                             @if(session('success'))
                                 <div class="alert alert-success text-center mt-3">
                                     {{ session('success') }}

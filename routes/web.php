@@ -30,6 +30,7 @@ use App\Http\Controllers\SantoshController;
 use App\Http\Controllers\DeeptiController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\DonationController;
 
 use App\Http\Controllers\Admin\EnquiryController as AdminEnquiryController;
 
@@ -43,6 +44,10 @@ Route::get('/leadership-team', [LeadershipTeam::class, 'leadership'])->name('lea
 Route::get('/courses', [CoursesController::class, 'index'])->name('courses');
 Route::get('/course-details', [CourseDetailsController::class, 'coursedetails'])->name('course-details');
 Route::get('/scholarships', [ScholarshipController::class, 'scholarships'])->name('scholarships');
+Route::get('/donate', [DonationController::class, 'index'])->name('donate');
+Route::post('/donate/initiate', [DonationController::class, 'initiatePayment'])->name('donation.initiate');
+Route::post('/donate/verify', [DonationController::class, 'verifyPayment'])->name('donation.verify');
+Route::get('/donate/success/{donationNumber}', [DonationController::class, 'success'])->name('donation.success');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');

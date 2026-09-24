@@ -72,85 +72,32 @@
     color: rgba(255, 255, 255, 0.5);
 }
 
-/* Section Header Styles */
-.cert-section-eyebrow {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: #d93829;
-    display: block;
-    margin-bottom: 10px;
-}
-.cert-section-eyebrow::after {
-    content: '';
-    display: block;
-    width: 44px;
-    height: 3px;
-    background: #d93829;
-    margin: 8px auto 0;
-    border-radius: 2px;
-}
-.cert-section-title {
-    font-size: 38px;
-    font-weight: 800;
-    color: #0c2340;
-    margin-bottom: 14px;
-    letter-spacing: -0.5px;
-}
-.cert-section-lead {
-    font-size: 16px;
-    color: #5F6670;
-    max-width: 720px;
-    margin: 0 auto 30px;
-    line-height: 1.65;
-}
-
-/* Centered Pill Badge */
-.cert-pill-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #ffffff;
-    padding: 10px 24px;
-    border-radius: 50px;
-    border: 1.5px solid #e2e8f0;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
-    font-size: 15px;
-    font-weight: 700;
-    color: #0c2340;
-    margin-bottom: 40px;
-}
-.cert-pill-badge i {
-    color: #d93829;
-    font-size: 18px;
-}
-
 /* Category Filter Tabs */
 .cert-filter-nav {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 45px;
 }
 .cert-filter-btn {
     border: 1px solid #e2e8f0;
     background: #ffffff;
     color: #4b5563;
-    padding: 9px 20px;
+    padding: 10px 24px;
     border-radius: 30px;
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 600;
     transition: all .25s ease;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 .cert-filter-btn:hover,
 .cert-filter-btn.active {
     background: var(--sambhavam-blue, #034861);
     color: #ffffff;
     border-color: var(--sambhavam-blue, #034861);
-    box-shadow: 0 6px 16px rgba(3, 72, 97, 0.2);
+    box-shadow: 0 6px 16px rgba(3, 72, 97, 0.22);
 }
 
 /* Certificate Cards */
@@ -189,11 +136,12 @@
     background: #ffffff;
     padding: 6px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0,0,0,0.06);
-    transition: transform .35s ease;
+    transition: transform .35s ease, box-shadow .35s ease;
     cursor: pointer;
 }
-.cert-grid-card:hover .cert-paper-wrapper {
-    transform: scale(1.02);
+.cert-paper-wrapper:hover {
+    transform: scale(1.03);
+    box-shadow: 0 14px 30px rgba(3, 72, 97, 0.22);
 }
 .cert-paper-img {
     display: block;
@@ -203,6 +151,25 @@
     object-position: top;
     border-radius: 4px;
     border: 1px solid #e5e7eb;
+    transition: opacity .3s ease;
+}
+.cert-paper-overlay-hint {
+    position: absolute;
+    inset: 6px;
+    background: rgba(3, 72, 97, 0.82);
+    backdrop-filter: blur(2px);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity .25s ease;
+    gap: 8px;
+}
+.cert-paper-wrapper:hover .cert-paper-overlay-hint {
+    opacity: 1;
 }
 
 /* Floating Badges on Thumbnail */
@@ -263,14 +230,7 @@
     font-weight: 700;
     color: #0c2340;
     line-height: 1.35;
-    margin-bottom: 12px;
-}
-.cert-card-desc {
-    font-size: 13.5px;
-    color: #64748b;
-    line-height: 1.55;
-    margin-bottom: 16px;
-    flex-grow: 1;
+    margin-bottom: 14px;
 }
 
 /* Registration Meta Box */
@@ -280,6 +240,7 @@
     border-radius: 10px;
     padding: 12px 14px;
     margin-bottom: 18px;
+    margin-top: auto;
 }
 .cert-meta-row {
     display: flex;
@@ -311,51 +272,35 @@
 }
 
 /* Card Actions */
+/* Card Actions */
 .cert-card-actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    display: block;
     padding-top: 14px;
     border-top: 1px solid #f1f5f9;
 }
 .btn-cert-preview {
-    background: #ffffff;
-    border: 1.5px solid var(--sambhavam-blue, #034861);
-    color: var(--sambhavam-blue, #034861);
+    width: 100%;
+    background: linear-gradient(135deg, #034861 0%, #016d77 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
     font-weight: 700;
-    font-size: 13px;
-    padding: 9px 12px;
-    border-radius: 8px;
-    display: inline-flex;
+    font-size: 14px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
     transition: all .25s ease;
     cursor: pointer;
+    box-shadow: 0 4px 14px rgba(1, 109, 119, 0.22);
+    text-decoration: none;
 }
 .btn-cert-preview:hover {
-    background: var(--sambhavam-blue, #034861);
-    color: #ffffff;
-}
-.btn-cert-download {
-    background: #034861;
-    border: 1.5px solid #034861;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 13px;
-    padding: 9px 12px;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    text-decoration: none;
-    transition: all .25s ease;
-}
-.btn-cert-download:hover {
-    background: #016d77;
-    border-color: #016d77;
-    color: #ffffff;
+    background: linear-gradient(135deg, #deb65e 0%, #c99a3e 100%);
+    color: #032b3a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(222, 182, 94, 0.4);
 }
 
 /* Trust Pillar Strip */
@@ -407,92 +352,267 @@
     margin-top: 50px;
 }
 
-/* Document Lightbox Modal */
+/* ========================================================
+   HIGH-END DOCUMENT LIGHTBOX VIEWER MODAL
+   ======================================================== */
+.modal.modal-cert-viewer {
+    z-index: 10600 !important;
+}
+.modal-backdrop.show {
+    z-index: 10550 !important;
+    background-color: rgba(12, 35, 64, 0.82);
+    backdrop-filter: blur(8px);
+}
 .modal-cert-viewer .modal-dialog {
     max-width: 950px;
+    margin: 1.5rem auto;
+    transition: transform .3s ease-out, max-width .3s ease;
+}
+.modal-cert-viewer .modal-dialog.modal-fullscreen {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    height: 100vh !important;
 }
 .modal-cert-viewer .modal-content {
-    border-radius: 20px;
-    border: none;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     overflow: hidden;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+    background: #0f172a;
 }
+.modal-cert-viewer.modal-fullscreen .modal-content {
+    border-radius: 0;
+    height: 100vh;
+}
+
+/* Modal Header */
 .modal-cert-viewer .modal-header {
-    background: #0c2340;
+    background: linear-gradient(135deg, #0c2340 0%, #034861 100%);
     color: #ffffff;
-    padding: 18px 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.modal-cert-viewer .btn-close {
-    filter: brightness(0) invert(1);
-    opacity: 0.8;
-}
-.modal-cert-viewer .modal-body {
-    padding: 0;
-}
-.cert-modal-body-layout {
+    padding: 14px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
-@media (min-width: 992px) {
-    .cert-modal-body-layout {
-        flex-direction: row;
-    }
-    .cert-modal-img-col {
-        flex: 1.2;
-        background: #f1f5f9;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        overflow-y: auto;
-        max-height: 75vh;
-    }
-    .cert-modal-info-col {
-        flex: 1;
-        padding: 30px;
-        overflow-y: auto;
-        max-height: 75vh;
-    }
+.cert-modal-submeta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2px;
+}
+.cert-modal-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.cert-modal-tool-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all .2s ease;
+    text-decoration: none;
+}
+.cert-modal-tool-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+.modal-cert-viewer .btn-close-cert {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #ffffff;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.modal-cert-viewer .btn-close-cert:hover {
+    background: #ef4444;
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+/* Canvas Viewport */
+.cert-viewport {
+    width: 100%;
+    min-height: 75vh;
+    max-height: 80vh;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    position: relative;
+    background: radial-gradient(circle at center, #1e293b 0%, #0b1329 100%);
+    user-select: none;
+}
+.modal-fullscreen .cert-viewport {
+    max-height: calc(100vh - 120px);
+    min-height: calc(100vh - 120px);
+}
+.cert-viewport::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.cert-viewport::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.6);
+}
+.cert-viewport::-webkit-scrollbar-thumb {
+    background: rgba(222, 182, 94, 0.4);
+    border-radius: 4px;
+}
+.cert-viewport::-webkit-scrollbar-thumb:hover {
+    background: rgba(222, 182, 94, 0.7);
+}
+.cert-paper-canvas {
+    transition: transform 0.18s ease-out;
+    transform-origin: center center;
+    display: inline-block;
+    max-width: 100%;
+    position: relative;
+    cursor: zoom-in;
 }
 .cert-modal-full-img {
+    display: block;
     max-width: 100%;
+    max-height: 74vh;
+    width: auto;
     height: auto;
+    border-radius: 6px;
+    background: #ffffff;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+.modal-fullscreen .cert-modal-full-img {
+    max-height: 84vh;
+}
+.cert-zoom-group {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border: 1px solid #e2e8f0;
+    padding: 2px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
-.cert-spec-list {
-    list-style: none;
-    padding: 0;
-    margin: 18px 0;
-}
-.cert-spec-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #f1f5f9;
+.cert-zoom-btn {
+    background: transparent;
+    border: none;
+    color: #f1f5f9;
+    padding: 4px 10px;
     font-size: 13px;
-}
-.cert-spec-k {
-    color: #64748b;
-    font-weight: 500;
-}
-.cert-spec-v {
-    color: #0c2340;
     font-weight: 700;
-    text-align: right;
-    max-width: 60%;
-    word-break: break-word;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background .2s;
 }
-.cert-bullets-list {
-    margin: 14px 0 20px;
-    padding-left: 18px;
-    font-size: 13.5px;
-    color: #475569;
+.cert-zoom-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
-.cert-bullets-list li {
-    margin-bottom: 8px;
+.cert-zoom-val {
+    color: var(--sambhavam-gold, #deb65e);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 8px;
+    min-width: 48px;
+    text-align: center;
+    font-family: monospace;
+}
+
+/* Loading State */
+.cert-stage-loader {
+    position: absolute;
+    inset: 0;
+    background: #0f172a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #94a3b8;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+}
+.cert-stage-loader.loading {
+    opacity: 1;
+    pointer-events: auto;
+}
+.cert-spinner {
+    width: 42px;
+    height: 42px;
+    border: 3.5px solid rgba(222, 182, 94, 0.2);
+    border-top-color: var(--sambhavam-gold, #deb65e);
+    border-radius: 50%;
+    animation: certSpin 0.8s linear infinite;
+}
+@keyframes certSpin {
+    to { transform: rotate(360deg); }
+}
+
+.cert-live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+.cert-live-badge .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: certPulse 1.8s infinite;
+}
+@keyframes certPulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.btn-cert-copy {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #034861;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+}
+.btn-cert-copy:hover {
+    background: #034861;
+    color: #ffffff;
+    border-color: #034861;
+}
+.btn-cert-copy.copied {
+    background: #10b981 !important;
+    border-color: #10b981 !important;
+    color: #ffffff !important;
 }
 </style>
 @endpush
@@ -521,7 +641,7 @@
                 </p>
             </div>
             <div class="col-lg-4 text-lg-end d-none d-lg-block">
-                <div class="cert-pill-badge mb-0 wow fade-in-right" data-wow-delay="350ms" style="background: rgba(255,255,255,0.15); color:#fff; border-color: rgba(255,255,255,0.25); backdrop-filter: blur(8px);">
+                <div class="cert-pill-badge mb-0 wow fade-in-right" data-wow-delay="350ms" style="background: rgba(255,255,255,0.15); color:#fff; border-color: rgba(255,255,255,0.25); backdrop-filter: blur(8px); display: inline-flex; align-items: center; gap: 10px; padding: 10px 24px; border-radius: 50px; border: 1.5px solid rgba(255,255,255,0.25); font-size: 15px; font-weight: 700; color: #fff;">
                     <i class="fa fa-shield" style="color: var(--sambhavam-gold, #deb65e);"></i> 100% Statutory Compliant
                 </div>
             </div>
@@ -533,32 +653,11 @@
 <!-- ============================================= -->
 <!-- SECTION: MAIN CERTIFICATES & ACCREDITATIONS   -->
 <!-- ============================================= -->
-<section class="cert-main-section pt-80 pb-80" style="background: #f8fafc;">
+<section class="cert-main-section pt-60 pb-80" style="background: #f8fafc;">
     <div class="container">
 
-        <!-- Section Header (Matching Screenshot 2) -->
-        <div class="text-center mb-45">
-            <span class="cert-section-eyebrow wow fade-in-bottom" data-wow-delay="100ms">
-                Legal &amp; Recognitions
-            </span>
-            <h2 class="cert-section-title wow fade-in-bottom" data-wow-delay="200ms">
-                Our Certificates &amp; Accreditations
-            </h2>
-            <p class="cert-section-lead wow fade-in-bottom" data-wow-delay="300ms">
-                Committed to transparency, compliance, and excellence. Explore our official registrations,
-                memberships, legal approvals, and recognitions.
-            </p>
-
-            <div class="wow fade-in-bottom" data-wow-delay="350ms">
-                <div class="cert-pill-badge">
-                    <i class="fa fa-balance-scale"></i>
-                    <span>Legal Documents &amp; Registrations</span>
-                </div>
-            </div>
-        </div>
-
         <!-- Filter Buttons -->
-        <div class="cert-filter-nav wow fade-in-bottom" data-wow-delay="400ms">
+        <div class="cert-filter-nav wow fade-in-bottom" data-wow-delay="200ms">
             <button class="cert-filter-btn active" data-filter="all">All Certificates (7)</button>
             <button class="cert-filter-btn" data-filter="tax">Tax Exemption (12A &amp; 80G)</button>
             <button class="cert-filter-btn" data-filter="corporate">Incorporation &amp; CSR</button>
@@ -593,8 +692,12 @@
                                 <i class="fa fa-check-circle"></i> Verified
                             </span>
 
-                            <div class="cert-paper-wrapper" onclick="openCertModal('{{ $cert['slug'] }}')" title="Click to view full certificate">
-                                <img src="{{ asset($cert['preview_image']) }}" alt="{{ $cert['title'] }}" class="cert-paper-img">
+                            <div class="cert-paper-wrapper" data-cert-slug="{{ $cert['slug'] }}" role="button" tabindex="0" title="Click to preview {{ $cert['title'] }}">
+                                <img src="{{ $cert['preview_url'] }}" alt="{{ $cert['title'] }}" class="cert-paper-img" loading="lazy">
+                                <div class="cert-paper-overlay-hint">
+                                    <i class="fa fa-search-plus fa-2x"></i>
+                                    <span style="font-size:13px; font-weight:700;">Click to Inspect</span>
+                                </div>
                             </div>
                         </div>
 
@@ -604,7 +707,6 @@
                                 <i class="fa fa-university"></i> {{ $cert['authority'] }}
                             </div>
                             <h3 class="cert-card-title">{{ $cert['title'] }}</h3>
-                            <p class="cert-card-desc">{{ $cert['description'] }}</p>
 
                             <!-- Meta Details Box -->
                             <div class="cert-meta-box">
@@ -624,14 +726,11 @@
                                 @endif
                             </div>
 
-                            <!-- Card Action Buttons -->
+                            <!-- Single Action Button: Preview Document -->
                             <div class="cert-card-actions">
-                                <button type="button" class="btn-cert-preview" onclick="openCertModal('{{ $cert['slug'] }}')">
-                                    <i class="fa fa-eye"></i> Preview Doc
+                                <button type="button" class="btn-cert-preview" data-cert-slug="{{ $cert['slug'] }}">
+                                    <i class="fa fa-eye"></i> Preview Document
                                 </button>
-                                <a href="{{ asset($cert['pdf_file']) }}" class="btn-cert-download" target="_blank" download>
-                                    <i class="fa fa-download"></i> Official PDF
-                                </a>
                             </div>
 
                         </div>
@@ -722,93 +821,84 @@
 
 
 <!-- ============================================= -->
-<!-- MODAL: HIGH-RESOLUTION DOCUMENT VIEWER        -->
+<!-- MODAL: CLEAN HIGH-RESOLUTION IMAGE LIGHTBOX   -->
 <!-- ============================================= -->
-<div class="modal fade modal-cert-viewer" id="certViewerModal" tabindex="-1" aria-labelledby="certViewerModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
+<div class="modal fade modal-cert-viewer" id="certViewerModal" tabindex="-1" aria-labelledby="certModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" id="certModalDialog">
         <div class="modal-content">
+            
+            <!-- Modal Header -->
             <div class="modal-header">
-                <div>
-                    <h5 class="modal-title fw-bold text-white mb-1" id="certModalTitle">
-                        Document Preview
-                    </h5>
-                    <span class="badge bg-success" id="certModalBadge">
-                        <i class="fa fa-check-circle"></i> Verified Statutory Document
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                    <div>
+                        <h5 class="modal-title fw-bold text-white mb-0" id="certModalTitle">
+                            Document Preview
+                        </h5>
+                        <div class="cert-modal-submeta">
+                            <span id="certModalAuthority" class="text-white-50" style="font-size: 12.5px;">-</span>
+                            <span class="text-white-50">&bull;</span>
+                            <span id="certModalRegValue" style="color: var(--sambhavam-gold, #deb65e); font-family: monospace; font-size: 12.5px; font-weight: 700;">-</span>
+                        </div>
+                    </div>
+                    <span class="cert-live-badge d-none d-md-inline-flex">
+                        <span class="pulse-dot"></span>
+                        <span>Verified Document</span>
                     </span>
                 </div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body p-0">
-                <div class="cert-modal-body-layout">
-                    <!-- Left: Document Image Viewer -->
-                    <div class="cert-modal-img-col">
-                        <img src="" alt="Certificate" id="certModalImage" class="cert-modal-full-img">
+                
+                <div class="cert-modal-header-actions">
+                    <!-- Zoom Controls -->
+                    <div class="cert-zoom-group">
+                        <button type="button" class="cert-zoom-btn" id="btnZoomOut" title="Zoom Out (-)">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <span class="cert-zoom-val" id="zoomLevelDisplay">100%</span>
+                        <button type="button" class="cert-zoom-btn" id="btnZoomIn" title="Zoom In (+)">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <button type="button" class="cert-zoom-btn" id="btnZoomReset" title="Reset Zoom">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                     </div>
 
-                    <!-- Right: Metadata & Verification -->
-                    <div class="cert-modal-info-col">
-                        <div class="d-flex align-items-center gap-2 mb-3">
-                            <span class="badge" style="background:#034861; color:#fff; font-size:12px;" id="certModalAuthorityPill">Authority</span>
-                            <span class="text-muted" style="font-size:12.5px;" id="certModalFormType"></span>
-                        </div>
+                    <button type="button" class="cert-modal-tool-btn" id="btnToggleFullscreen" title="Toggle Fullscreen">
+                        <i class="fa fa-arrows-alt" id="fullscreenIcon"></i> <span class="d-none d-sm-inline">Maximize</span>
+                    </button>
+                    <button type="button" class="btn-close-cert" data-bs-dismiss="modal" aria-label="Close" title="Close Preview">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
 
-                        <h4 class="fw-bold text-dark mb-2" id="certModalDocName"></h4>
-                        <p class="text-muted" style="font-size:13.5px; line-height:1.6;" id="certModalDesc"></p>
+            <!-- Modal Body: High Resolution Full Image Stage -->
+            <div class="modal-body p-0">
+                <div class="cert-viewport" id="certViewport">
+                    <!-- Loader -->
+                    <div class="cert-stage-loader" id="certStageLoader">
+                        <div class="cert-spinner"></div>
+                        <span>Loading Document Preview...</span>
+                    </div>
 
-                        <hr class="my-3">
-
-                        <h6 class="fw-bold text-dark" style="font-size:14px; text-transform:uppercase; letter-spacing:.5px;">
-                            Statutory Specifications
-                        </h6>
-                        <ul class="cert-spec-list">
-                            <li class="cert-spec-item">
-                                <span class="cert-spec-k" id="certModalRegLabel">Registration No:</span>
-                                <span class="cert-spec-v" id="certModalRegValue"></span>
-                            </li>
-                            <li class="cert-spec-item">
-                                <span class="cert-spec-k">Issuing Authority:</span>
-                                <span class="cert-spec-v" id="certModalAuthority"></span>
-                            </li>
-                            <li class="cert-spec-item">
-                                <span class="cert-spec-k">Issue Date:</span>
-                                <span class="cert-spec-v" id="certModalIssueDate"></span>
-                            </li>
-                            <li class="cert-spec-item">
-                                <span class="cert-spec-k">Validity Period:</span>
-                                <span class="cert-spec-v" id="certModalValidity"></span>
-                            </li>
-                            <li class="cert-spec-item">
-                                <span class="cert-spec-k">Entity PAN:</span>
-                                <span class="cert-spec-v" id="certModalPan"></span>
-                            </li>
-                            <li class="cert-spec-item" id="certModalDinRow">
-                                <span class="cert-spec-k" id="certModalDinLabel">Reference / DIN:</span>
-                                <span class="cert-spec-v" id="certModalDinValue"></span>
-                            </li>
-                        </ul>
-
-                        <h6 class="fw-bold text-dark mt-3" style="font-size:14px;">Key Statutory Highlights</h6>
-                        <ul class="cert-bullets-list" id="certModalHighlights"></ul>
-
-                        <div class="d-grid gap-2 mt-4">
-                            <a href="#" id="certModalDownloadBtn" class="ed-primary-btn text-center" target="_blank" download>
-                                <i class="fa fa-download me-2"></i> Download Official Certificate (PDF)
-                            </a>
-                            <a href="#" id="certModalGovVerifyBtn" class="btn btn-outline-secondary btn-sm text-center" target="_blank" rel="noopener noreferrer">
-                                <i class="fa fa-external-link me-1"></i> Verify on Official Government Portal
-                            </a>
-                        </div>
+                    <!-- Image Container -->
+                    <div class="cert-paper-canvas" id="certPaperCanvas" title="Double click to Zoom">
+                        <img src="" alt="Certificate" id="certModalImage" class="cert-modal-full-img">
                     </div>
                 </div>
             </div>
 
-            <div class="modal-footer bg-light py-2 px-4 justify-content-between">
+            <!-- Modal Footer: Clean & Simple (No Download Options) -->
+            <div class="modal-footer bg-light py-2 px-4 justify-content-between align-items-center">
                 <small class="text-muted">
-                    <i class="fa fa-lock text-success me-1"></i> Digitally certified official statutory document of Sambhavam Foundation.
+                    <i class="fa fa-shield text-success me-1"></i> Digitally Certified Statutory Document &bull; Sambhavam Foundation
                 </small>
-                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" class="btn-cert-copy" id="btnCopyRegNum" title="Copy Registration / URN Number">
+                        <i class="fa fa-copy"></i> <span>Copy URN</span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -817,65 +907,167 @@
 <script>
 // JSON payload for modal interactions
 const certData = @json($certificates);
+let certModalInstance = null;
+let currentZoom = 1;
+let currentCert = null;
+let isFullscreen = false;
+
+function updateZoom(newZoom) {
+    currentZoom = Math.min(Math.max(newZoom, 0.5), 2.5);
+    const canvas = document.getElementById('certPaperCanvas');
+    const zoomVal = document.getElementById('zoomLevelDisplay');
+    if (canvas) {
+        canvas.style.transform = `scale(${currentZoom})`;
+    }
+    if (zoomVal) {
+        zoomVal.textContent = `${Math.round(currentZoom * 100)}%`;
+    }
+}
+
+function copyText(text, btnEl) {
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+        if (!btnEl) return;
+        const originalHtml = btnEl.innerHTML;
+        btnEl.classList.add('copied');
+        btnEl.innerHTML = '<i class="fa fa-check"></i> <span>Copied!</span>';
+        setTimeout(() => {
+            btnEl.classList.remove('copied');
+            btnEl.innerHTML = originalHtml;
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
 
 function openCertModal(slug) {
     const cert = certData.find(c => c.slug === slug);
     if (!cert) return;
+    currentCert = cert;
 
-    document.getElementById('certModalTitle').innerText = cert.title;
-    document.getElementById('certModalImage').src = '{{ asset('') }}' + cert.preview_image;
-    document.getElementById('certModalImage').alt = cert.title;
-    document.getElementById('certModalAuthorityPill').innerText = cert.short_title;
-    document.getElementById('certModalFormType').innerText = cert.form || '';
-    document.getElementById('certModalDocName').innerText = cert.title;
-    document.getElementById('certModalDesc').innerText = cert.description;
+    const titleEl = document.getElementById('certModalTitle');
+    const imgEl = document.getElementById('certModalImage');
+    const authEl = document.getElementById('certModalAuthority');
+    const regValueEl = document.getElementById('certModalRegValue');
+    const loader = document.getElementById('certStageLoader');
 
-    document.getElementById('certModalRegLabel').innerText = cert.reg_label + ':';
-    document.getElementById('certModalRegValue').innerText = cert.reg_number;
-    document.getElementById('certModalAuthority').innerText = cert.authority;
-    document.getElementById('certModalIssueDate').innerText = cert.issue_date || 'Approved';
-    document.getElementById('certModalValidity').innerText = cert.validity || 'Valid';
-    document.getElementById('certModalPan').innerText = cert.pan || 'ABSCS7736H';
+    if (titleEl) titleEl.textContent = cert.title;
+    if (authEl) authEl.textContent = cert.authority || cert.short_title || '';
+    if (regValueEl) regValueEl.textContent = cert.reg_number ? (cert.reg_label + ': ' + cert.reg_number) : '';
 
-    if (cert.din) {
-        document.getElementById('certModalDinRow').style.display = 'flex';
-        document.getElementById('certModalDinValue').innerText = cert.din;
-    } else {
-        document.getElementById('certModalDinRow').style.display = 'none';
+    // Reset zoom
+    updateZoom(1);
+
+    // Show image with loader
+    if (imgEl) {
+        if (loader) loader.classList.add('loading');
+        imgEl.onload = function() {
+            if (loader) loader.classList.remove('loading');
+        };
+        imgEl.onerror = function() {
+            if (loader) loader.classList.remove('loading');
+        };
+        imgEl.src = cert.preview_url;
+        imgEl.alt = cert.title;
     }
 
-    // Highlights list
-    const hlUl = document.getElementById('certModalHighlights');
-    hlUl.innerHTML = '';
-    if (cert.highlights && cert.highlights.length) {
-        cert.highlights.forEach(h => {
-            const li = document.createElement('li');
-            li.innerText = h;
-            hlUl.appendChild(li);
+    // Open Modal safely
+    const modalEl = document.getElementById('certViewerModal');
+    if (modalEl) {
+        if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+            if (!certModalInstance) {
+                certModalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
+            }
+            certModalInstance.show();
+        } else if (window.jQuery && typeof jQuery.fn.modal === 'function') {
+            jQuery(modalEl).modal('show');
+        } else {
+            modalEl.classList.add('show');
+            modalEl.style.display = 'block';
+            document.body.classList.add('modal-open');
+        }
+    }
+}
+
+// Make openCertModal globally accessible
+window.openCertModal = openCertModal;
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. Event Delegation for all preview triggers
+    document.addEventListener('click', function(e) {
+        const trigger = e.target.closest('[data-cert-slug], .btn-cert-preview, .cert-paper-wrapper');
+        if (trigger) {
+            const slug = trigger.getAttribute('data-cert-slug');
+            if (slug) {
+                e.preventDefault();
+                openCertModal(slug);
+            }
+        }
+    });
+
+    // 2. Zoom Controls
+    const btnZoomIn = document.getElementById('btnZoomIn');
+    const btnZoomOut = document.getElementById('btnZoomOut');
+    const btnZoomReset = document.getElementById('btnZoomReset');
+
+    if (btnZoomIn) {
+        btnZoomIn.addEventListener('click', () => updateZoom(currentZoom + 0.25));
+    }
+    if (btnZoomOut) {
+        btnZoomOut.addEventListener('click', () => updateZoom(currentZoom - 0.25));
+    }
+    if (btnZoomReset) {
+        btnZoomReset.addEventListener('click', () => updateZoom(1));
+    }
+
+    // Double click to zoom in/reset
+    const paperCanvas = document.getElementById('certPaperCanvas');
+    if (paperCanvas) {
+        paperCanvas.addEventListener('dblclick', function() {
+            if (currentZoom === 1) {
+                updateZoom(1.5);
+            } else {
+                updateZoom(1);
+            }
         });
     }
 
-    // Download button
-    const dlBtn = document.getElementById('certModalDownloadBtn');
-    dlBtn.href = '{{ asset('') }}' + cert.pdf_file;
+    // 3. Fullscreen Modal Toggle
+    const btnToggleFullscreen = document.getElementById('btnToggleFullscreen');
+    const modalDialog = document.getElementById('certModalDialog');
+    const fullscreenIcon = document.getElementById('fullscreenIcon');
 
-    // Gov verify button
-    const govBtn = document.getElementById('certModalGovVerifyBtn');
-    if (cert.verify_url) {
-        govBtn.href = cert.verify_url;
-        govBtn.style.display = 'inline-block';
-    } else {
-        govBtn.style.display = 'none';
+    if (btnToggleFullscreen && modalDialog) {
+        btnToggleFullscreen.addEventListener('click', function() {
+            isFullscreen = !isFullscreen;
+            if (isFullscreen) {
+                modalDialog.classList.add('modal-fullscreen');
+                if (fullscreenIcon) {
+                    fullscreenIcon.classList.remove('fa-arrows-alt');
+                    fullscreenIcon.classList.add('fa-compress');
+                }
+            } else {
+                modalDialog.classList.remove('modal-fullscreen');
+                if (fullscreenIcon) {
+                    fullscreenIcon.classList.remove('fa-compress');
+                    fullscreenIcon.classList.add('fa-arrows-alt');
+                }
+            }
+        });
     }
 
-    // Show modal
-    const modalEl = document.getElementById('certViewerModal');
-    const modalObj = bootstrap.Modal.getOrCreateInstance(modalEl);
-    modalObj.show();
-}
+    // 4. Copy Registration Number
+    const btnCopyRegNum = document.getElementById('btnCopyRegNum');
+    if (btnCopyRegNum) {
+        btnCopyRegNum.addEventListener('click', function() {
+            if (currentCert && currentCert.reg_number) {
+                copyText(currentCert.reg_number, btnCopyRegNum);
+            }
+        });
+    }
 
-// Category filter tabs logic
-document.addEventListener('DOMContentLoaded', function() {
+    // 5. Filter Tabs
     const filterBtns = document.querySelectorAll('.cert-filter-btn');
     const certCols = document.querySelectorAll('.cert-item-col');
 
@@ -895,13 +1087,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Check hash in URL (e.g. #12a)
+    // 6. Check hash in URL (e.g. #12a)
     if (window.location.hash) {
         const hash = window.location.hash.replace('#', '');
         const targetCard = document.getElementById(hash);
         if (targetCard) {
             targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            // Highlight briefly
             targetCard.querySelector('.cert-grid-card').style.outline = '3px solid var(--sambhavam-teal, #016d77)';
             setTimeout(() => {
                 targetCard.querySelector('.cert-grid-card').style.outline = '';

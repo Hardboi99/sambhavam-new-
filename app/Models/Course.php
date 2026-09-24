@@ -11,8 +11,13 @@ class Course extends Model
     use HasFactory;
 
     protected $fillable = [
-    'category_id', 'title', 'slug', 'description', 'curriculum', 'key_features',
-    'eligibility_fees', 'duration', 'mode', 'image', 'sort_order', 'price', 'is_active',
+        'category_id', 'title', 'slug', 'description', 'curriculum', 'key_features',
+        'eligibility_fees', 'faqs', 'duration', 'mode', 'image', 'sort_order', 'price', 'is_active',
+    ];
+
+    protected $casts = [
+        'faqs' => 'array',
+        'is_active' => 'boolean',
     ];
 
     public function category()

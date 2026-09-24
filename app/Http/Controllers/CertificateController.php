@@ -200,6 +200,16 @@ class CertificateController extends Controller
             ]
         ];
 
+        // Pre-compute full asset URLs and safely encoded PDF links
+        foreach ($certificates as &$c) {
+            $c['preview_url'] = asset($c['preview_image']);
+            // Safely encode PDF path with spaces for direct browser access
+            $pathParts = explode('/', $c['pdf_file']);
+            $encodedParts = array_map('rawurlencode', $pathParts);
+            $c['pdf_url'] = asset(implode('/', $encodedParts));
+        }
+        unset($c);
+
         return view('certificates', compact('certificates'));
     }
 }

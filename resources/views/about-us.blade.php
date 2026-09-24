@@ -287,25 +287,239 @@
 
     <!-- ============================================= -->
     <!-- SECTION 8: CLOSING STATEMENT -->
-    <!-- (NEW SECTION - uses .closing-section, styles below) -->
     <!-- ============================================= -->
-    <section class="closing-section container my-5">
-        <div class="closing-overlay"></div>
-        <div class="container position-relative">
-            <div class="closing-content text-center">
-                <h4 class="closing-eyebrow wow fade-in-bottom" data-wow-delay="200ms">This Is SAMBHAVAM</h4>
-                <p class="closing-line wow fade-in-bottom" data-wow-delay="250ms">A place where curiosity is encouraged.</p>
-                <p class="closing-line wow fade-in-bottom" data-wow-delay="350ms">Where ambition receives direction.</p>
-                <p class="closing-line wow fade-in-bottom" data-wow-delay="450ms">Where technology strengthens learning.</p>
-                <p class="closing-line wow fade-in-bottom" data-wow-delay="550ms">Where students become leaders and communities discover new possibilities.</p>
-                <h2 class="closing-tagline wow fade-in-bottom" data-wow-delay="650ms">Learn. Innovate. Lead. Create Impact.</h2>
-                <div class="about-btn wow fade-in-bottom" data-wow-delay="750ms">
-                    <a href="{{ url('/#programmes') }}" class="ed-primary-btn">Discover Our Programmes</a>
+    <section class="about-closing-section container my-5" style="background-image: url('{{ asset('images/banners/ab-bg.png') }}');">
+        <div class="about-closing-overlay"></div>
+        <div class="about-closing-pattern"></div>
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="about-closing-content text-center">
+                <div class="about-closing-eyebrow wow fade-in-bottom" data-wow-delay="200ms">
+                    <i class="fa fa-bolt"></i>
+                    <span>This Is SAMBHAVAM</span>
+                </div>
+
+                <div class="about-closing-lines-grid wow fade-in-bottom" data-wow-delay="300ms">
+                    <div class="about-closing-item">
+                        <i class="fa fa-compass"></i>
+                        <span>A place where <strong>curiosity is encouraged</strong>.</span>
+                    </div>
+                    <div class="about-closing-item">
+                        <i class="fa fa-line-chart"></i>
+                        <span>Where <strong>ambition receives direction</strong>.</span>
+                    </div>
+                    <div class="about-closing-item">
+                        <i class="fa fa-laptop"></i>
+                        <span>Where <strong>technology strengthens learning</strong>.</span>
+                    </div>
+                    <div class="about-closing-item">
+                        <i class="fa fa-users"></i>
+                        <span>Where students become <strong>leaders</strong> &amp; communities discover <strong>new possibilities</strong>.</span>
+                    </div>
+                </div>
+
+                <h2 class="about-closing-tagline wow fade-in-bottom" data-wow-delay="450ms">
+                    Learn. Innovate. Lead. Create Impact.
+                </h2>
+                <div class="about-closing-divider wow fade-in-bottom" data-wow-delay="500ms"></div>
+
+                <div class="about-closing-actions wow fade-in-bottom" data-wow-delay="550ms">
+                    <a href="{{ url('/#academy') }}" class="ed-primary-btn closing-gold-btn">
+                        <i class="fa fa-graduation-cap me-2"></i> Discover Our Programmes
+                    </a>
+                    <a href="{{ url('contact') }}" class="ed-primary-btn closing-glass-btn">
+                        <i class="fa fa-handshake-o me-2"></i> Join Our Mission
+                    </a>
                 </div>
             </div>
         </div>
     </section>
     <!-- ./ closing-section -->
+
+@push('styles')
+<style>
+/* ======================================================== */
+/* ABOUT US CLOSING STATEMENT SECTION (ENHANCED)           */
+/* ======================================================== */
+.about-closing-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 24px;
+    padding: 75px 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(3, 72, 97, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.about-closing-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(3, 72, 97, 0.95) 0%, rgba(1, 109, 119, 0.90) 50%, rgba(16, 36, 58, 0.96) 100%);
+    z-index: 1;
+}
+
+.about-closing-pattern {
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 12% 18%, rgba(222, 182, 94, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 88% 82%, rgba(1, 109, 119, 0.25) 0%, transparent 45%),
+        url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="%23ffffff" fill-opacity="0.03" fill-rule="evenodd"><path d="M0 60L60 0H30L0 30M60 60V30L30 60"/></g></svg>');
+    z-index: 1;
+    pointer-events: none;
+}
+
+.about-closing-content {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.about-closing-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(222, 182, 94, 0.4);
+    color: #deb65e;
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.about-closing-lines-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.about-closing-item {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 14.5px;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+.about-closing-item:hover {
+    background: rgba(255, 255, 255, 0.14);
+    transform: translateY(-3px);
+    border-color: rgba(222, 182, 94, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-closing-item i {
+    font-size: 18px;
+    color: #deb65e;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+}
+
+.about-closing-item strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.about-closing-tagline {
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.about-closing-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #deb65e, #f59e0b);
+    border-radius: 3px;
+    margin: 0 auto 30px;
+}
+
+.about-closing-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.about-closing-actions .closing-gold-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 30px;
+    background: linear-gradient(135deg, #deb65e 0%, #c99a3e 100%);
+    color: #043148 !important;
+    border-radius: 50px;
+    font-size: 14.5px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(222, 182, 94, 0.35);
+    border: 1px solid #deb65e;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-closing-actions .closing-gold-btn:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #043148 !important;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.about-closing-actions .closing-glass-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #ffffff !important;
+    border-radius: 50px;
+    font-size: 14.5px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-closing-actions .closing-glass-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    color: #ffffff !important;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 767px) {
+    .about-closing-section { padding: 50px 20px; }
+    .about-closing-lines-grid { grid-template-columns: 1fr; gap: 12px; }
+    .about-closing-tagline { font-size: 26px; }
+    .about-closing-item { padding: 14px 16px; font-size: 13.5px; }
+}
+</style>
+@endpush
 
 @endsection
 

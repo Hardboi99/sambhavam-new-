@@ -41,10 +41,22 @@
             @error('image') <small class="text-danger">{{ $message }}</small> @enderror
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Full Content</label>
-            <div id="contentEditor" style="height: 300px; background: #fff;"></div>
-            <textarea name="content" id="contentInput" style="display:none;">{{ old('content', $blog->content) }}</textarea>
+        <div class="mb-3 editor-wrapper" id="contentWrapper">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <label class="form-label mb-0 fw-semibold">Full Content</label>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-outline-primary active btn-mode-visual" title="Visual Rich Text Editor">
+                        <i class="fa fa-eye me-1"></i> Visual
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-mode-html" title="Raw HTML Code Editor">
+                        <i class="fa fa-code me-1"></i> &lt;/&gt; HTML Code
+                    </button>
+                </div>
+            </div>
+            <div class="quill-editor-container">
+                <div id="contentEditor" style="height: 300px; background: #fff;"></div>
+            </div>
+            <textarea name="content" id="contentInput" class="form-control html-code-textarea" style="display:none; min-height: 300px; font-family: 'Consolas', 'Fira Code', 'Courier New', monospace; font-size: 13.5px; background: #1e293b; color: #f8fafc; border-radius: 6px; padding: 12px; line-height: 1.6; resize: vertical;" placeholder="Enter or paste raw HTML code here, e.g. <p>...</p>">{{ old('content', $blog->content) }}</textarea>
         </div>
 
         <hr class="my-4">
@@ -80,12 +92,58 @@
 <link href="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.snow.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.min.js"></script>
 <script>
-    const contentQuill = new Quill('#contentEditor', { theme: 'snow' });
+    const toolbarOptions = [
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'align': [] }],
+        ['link', 'blockquote', 'code-block'],
+        ['clean']
+    ];
 
-    contentQuill.root.innerHTML = document.getElementById('contentInput').value;
+    const contentQuill = new Quill('#contentEditor', {
+        theme: 'snow',
+        modules: { toolbar: toolbarOptions }
+    });
+
+    const contentInput = document.getElementById('contentInput');
+    const contentWrapper = document.getElementById('contentWrapper');
+    let contentMode = 'visual';
+
+    contentQuill.root.innerHTML = contentInput.value || '';
+
+    if (contentWrapper) {
+        const visualBtn = contentWrapper.querySelector('.btn-mode-visual');
+        const htmlBtn = contentWrapper.querySelector('.btn-mode-html');
+        const quillContainer = contentWrapper.querySelector('.quill-editor-container');
+
+        visualBtn?.addEventListener('click', function () {
+            if (contentMode === 'visual') return;
+            contentQuill.root.innerHTML = contentInput.value;
+            contentInput.style.display = 'none';
+            quillContainer.style.display = 'block';
+            visualBtn.classList.add('active');
+            htmlBtn.classList.remove('active');
+            contentMode = 'visual';
+        });
+
+        htmlBtn?.addEventListener('click', function () {
+            if (contentMode === 'html') return;
+            contentInput.value = contentQuill.root.innerHTML;
+            quillContainer.style.display = 'none';
+            contentInput.style.display = 'block';
+            htmlBtn.classList.add('active');
+            visualBtn.classList.remove('active');
+            contentMode = 'html';
+            contentInput.focus();
+        });
+    }
 
     document.getElementById('blogEditForm').addEventListener('submit', function () {
-        document.getElementById('contentInput').value = contentQuill.root.innerHTML;
+        if (contentMode === 'visual') {
+            contentInput.value = contentQuill.root.innerHTML;
+        }
     });
 </script>
 @endpush

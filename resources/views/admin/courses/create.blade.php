@@ -33,28 +33,76 @@
             @error('image') <small class="text-danger">{{ $message }}</small> @enderror
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Overview / Description</label>
-            <div id="descriptionEditor" style="height: 180px; background: #fff;"></div>
-            <textarea name="description" id="descriptionInput" style="display:none;">{{ old('description') }}</textarea>
+        <div class="mb-3 editor-wrapper" id="descriptionWrapper">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <label class="form-label mb-0 fw-semibold">Overview / Description</label>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-outline-primary active btn-mode-visual" title="Visual Rich Text Editor">
+                        <i class="fa fa-eye me-1"></i> Visual
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-mode-html" title="Raw HTML Code Editor">
+                        <i class="fa fa-code me-1"></i> &lt;/&gt; HTML Code
+                    </button>
+                </div>
+            </div>
+            <div class="quill-editor-container">
+                <div id="descriptionEditor" style="height: 180px; background: #fff;"></div>
+            </div>
+            <textarea name="description" id="descriptionInput" class="form-control html-code-textarea" style="display:none; min-height: 180px; font-family: 'Consolas', 'Fira Code', 'Courier New', monospace; font-size: 13.5px; background: #1e293b; color: #f8fafc; border-radius: 6px; padding: 12px; line-height: 1.6; resize: vertical;" placeholder="Enter or paste raw HTML code here, e.g. <p>...</p>">{{ old('description') }}</textarea>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Curriculum / Subjects Covered</label>
-            <div id="curriculumEditor" style="height: 180px; background: #fff;"></div>
-            <textarea name="curriculum" id="curriculumInput" style="display:none;">{{ old('curriculum') }}</textarea>
+        <div class="mb-3 editor-wrapper" id="curriculumWrapper">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <label class="form-label mb-0 fw-semibold">Curriculum / Subjects Covered</label>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-outline-primary active btn-mode-visual" title="Visual Rich Text Editor">
+                        <i class="fa fa-eye me-1"></i> Visual
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-mode-html" title="Raw HTML Code Editor">
+                        <i class="fa fa-code me-1"></i> &lt;/&gt; HTML Code
+                    </button>
+                </div>
+            </div>
+            <div class="quill-editor-container">
+                <div id="curriculumEditor" style="height: 180px; background: #fff;"></div>
+            </div>
+            <textarea name="curriculum" id="curriculumInput" class="form-control html-code-textarea" style="display:none; min-height: 180px; font-family: 'Consolas', 'Fira Code', 'Courier New', monospace; font-size: 13.5px; background: #1e293b; color: #f8fafc; border-radius: 6px; padding: 12px; line-height: 1.6; resize: vertical;" placeholder="Enter or paste raw HTML code here, e.g. <p>...</p>">{{ old('curriculum') }}</textarea>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Key Features of the Batch</label>
-            <div id="keyFeaturesEditor" style="height: 180px; background: #fff;"></div>
-            <textarea name="key_features" id="keyFeaturesInput" style="display:none;">{{ old('key_features') }}</textarea>
+        <div class="mb-3 editor-wrapper" id="keyFeaturesWrapper">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <label class="form-label mb-0 fw-semibold">Key Features of the Batch</label>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-outline-primary active btn-mode-visual" title="Visual Rich Text Editor">
+                        <i class="fa fa-eye me-1"></i> Visual
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-mode-html" title="Raw HTML Code Editor">
+                        <i class="fa fa-code me-1"></i> &lt;/&gt; HTML Code
+                    </button>
+                </div>
+            </div>
+            <div class="quill-editor-container">
+                <div id="keyFeaturesEditor" style="height: 180px; background: #fff;"></div>
+            </div>
+            <textarea name="key_features" id="keyFeaturesInput" class="form-control html-code-textarea" style="display:none; min-height: 180px; font-family: 'Consolas', 'Fira Code', 'Courier New', monospace; font-size: 13.5px; background: #1e293b; color: #f8fafc; border-radius: 6px; padding: 12px; line-height: 1.6; resize: vertical;" placeholder="Enter or paste raw HTML code here, e.g. <p>...</p>">{{ old('key_features') }}</textarea>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Eligibility &amp; Fees</label>
-            <div id="eligibilityFeesEditor" style="height: 180px; background: #fff;"></div>
-            <textarea name="eligibility_fees" id="eligibilityFeesInput" style="display:none;">{{ old('eligibility_fees') }}</textarea>
+        <div class="mb-3 editor-wrapper" id="eligibilityFeesWrapper">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <label class="form-label mb-0 fw-semibold">Eligibility &amp; Fees</label>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-outline-primary active btn-mode-visual" title="Visual Rich Text Editor">
+                        <i class="fa fa-eye me-1"></i> Visual
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-mode-html" title="Raw HTML Code Editor">
+                        <i class="fa fa-code me-1"></i> &lt;/&gt; HTML Code
+                    </button>
+                </div>
+            </div>
+            <div class="quill-editor-container">
+                <div id="eligibilityFeesEditor" style="height: 180px; background: #fff;"></div>
+            </div>
+            <textarea name="eligibility_fees" id="eligibilityFeesInput" class="form-control html-code-textarea" style="display:none; min-height: 180px; font-family: 'Consolas', 'Fira Code', 'Courier New', monospace; font-size: 13.5px; background: #1e293b; color: #f8fafc; border-radius: 6px; padding: 12px; line-height: 1.6; resize: vertical;" placeholder="Enter or paste raw HTML code here, e.g. <p>...</p>">{{ old('eligibility_fees') }}</textarea>
         </div>
 
         <div class="row">
@@ -85,6 +133,33 @@
             </div>
         </div>
 
+        <!-- Course FAQs Section -->
+        <div class="card mb-4 border shadow-sm">
+            <div class="card-header bg-light d-flex justify-content-between align-items-center py-3">
+                <div>
+                    <h5 class="mb-0 fw-bold text-dark">
+                        <i class="fa fa-question-circle text-primary me-2"></i> Course FAQs (Frequently Asked Questions)
+                    </h5>
+                    <small class="text-muted">Add course-specific FAQs that will be displayed in an interactive accordion on the course details page.</small>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-primary" id="addFaqBtn">
+                    <i class="fa fa-plus me-1"></i> Add FAQ
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="faqContainer">
+                    <!-- Dynamic FAQs inserted here -->
+                </div>
+                <div id="faqEmptyState" class="text-center py-4 text-muted border border-dashed rounded bg-light">
+                    <i class="fa fa-comments-o fs-3 mb-2 d-block text-secondary"></i>
+                    <p class="mb-2">No FAQs added for this course yet.</p>
+                    <button type="button" class="btn btn-sm btn-primary" id="addFirstFaqBtn">
+                        <i class="fa fa-plus me-1"></i> Add First FAQ
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <button type="submit" class="btn btn-primary">Save Course</button>
         <a href="{{ route('admin.courses.index') }}" class="btn btn-light">Cancel</a>
     </form>
@@ -92,26 +167,190 @@
 
 @push('scripts')
 <link href="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.snow.css" rel="stylesheet">
+<style>
+    .ql-editor {
+        font-size: 14.5px;
+        line-height: 1.7;
+        color: #1e293b;
+        font-family: inherit;
+    }
+    .ql-editor p {
+        margin-bottom: 12px;
+    }
+    .ql-editor p:last-child {
+        margin-bottom: 0;
+    }
+    .ql-editor strong, .ql-editor b {
+        color: #034861;
+        font-weight: 700;
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.min.js"></script>
 <script>
-    const editors = [
-        { id: 'descriptionEditor', input: 'descriptionInput' },
-        { id: 'curriculumEditor', input: 'curriculumInput' },
-        { id: 'keyFeaturesEditor', input: 'keyFeaturesInput' },
-        { id: 'eligibilityFeesEditor', input: 'eligibilityFeesInput' },
+    const toolbarOptions = [
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'align': [] }],
+        ['link', 'blockquote', 'code-block'],
+        ['clean']
     ];
 
-    const quillInstances = editors.map(e => {
-        const quill = new Quill('#' + e.id, { theme: 'snow' });
-        quill.root.innerHTML = document.getElementById(e.input).value;
-        return { quill, inputId: e.input };
+    const editorConfigs = [
+        { key: 'description', editorId: 'descriptionEditor', inputId: 'descriptionInput', wrapperId: 'descriptionWrapper' },
+        { key: 'curriculum', editorId: 'curriculumEditor', inputId: 'curriculumInput', wrapperId: 'curriculumWrapper' },
+        { key: 'keyFeatures', editorId: 'keyFeaturesEditor', inputId: 'keyFeaturesInput', wrapperId: 'keyFeaturesWrapper' },
+        { key: 'eligibilityFees', editorId: 'eligibilityFeesEditor', inputId: 'eligibilityFeesInput', wrapperId: 'eligibilityFeesWrapper' },
+    ];
+
+    const editorMap = {};
+
+    editorConfigs.forEach(cfg => {
+        const editorEl = document.getElementById(cfg.editorId);
+        const inputEl = document.getElementById(cfg.inputId);
+        const wrapperEl = document.getElementById(cfg.wrapperId);
+        if (!editorEl || !inputEl) return;
+
+        const quill = new Quill('#' + cfg.editorId, {
+            theme: 'snow',
+            modules: { toolbar: toolbarOptions }
+        });
+
+        // Preload initial value into Quill
+        if (inputEl.value) {
+            quill.clipboard.dangerouslyPasteHTML(0, inputEl.value);
+        }
+
+        // Smart HTML Paste handler for Visual Mode
+        quill.root.addEventListener('paste', function (e) {
+            const text = (e.clipboardData || window.clipboardData)?.getData('text/plain');
+            if (text && /^\s*<[a-z][\s\S]*>/i.test(text.trim())) {
+                e.preventDefault();
+                const selection = quill.getSelection(true);
+                const index = selection ? selection.index : quill.getLength();
+                quill.clipboard.dangerouslyPasteHTML(index, text.trim());
+            }
+        });
+
+        editorMap[cfg.key] = {
+            quill: quill,
+            input: inputEl,
+            wrapper: wrapperEl,
+            mode: 'visual'
+        };
+
+        if (wrapperEl) {
+            const visualBtn = wrapperEl.querySelector('.btn-mode-visual');
+            const htmlBtn = wrapperEl.querySelector('.btn-mode-html');
+            const quillContainer = wrapperEl.querySelector('.quill-editor-container');
+
+            if (visualBtn && htmlBtn && quillContainer) {
+                visualBtn.addEventListener('click', function () {
+                    if (editorMap[cfg.key].mode === 'visual') return;
+                    // Sync HTML textarea -> Quill Visual
+                    quill.setText('');
+                    if (inputEl.value) {
+                        quill.clipboard.dangerouslyPasteHTML(0, inputEl.value);
+                    }
+                    inputEl.style.display = 'none';
+                    quillContainer.style.display = 'block';
+                    visualBtn.classList.add('active');
+                    htmlBtn.classList.remove('active');
+                    editorMap[cfg.key].mode = 'visual';
+                });
+
+                htmlBtn.addEventListener('click', function () {
+                    if (editorMap[cfg.key].mode === 'html') return;
+                    // Sync Quill Visual -> HTML textarea
+                    inputEl.value = quill.root.innerHTML;
+                    quillContainer.style.display = 'none';
+                    inputEl.style.display = 'block';
+                    htmlBtn.classList.add('active');
+                    visualBtn.classList.remove('active');
+                    editorMap[cfg.key].mode = 'html';
+                    inputEl.focus();
+                });
+            }
+        }
     });
 
     document.getElementById('courseForm').addEventListener('submit', function () {
-        quillInstances.forEach(({ quill, inputId }) => {
-            document.getElementById(inputId).value = quill.root.innerHTML;
+        Object.values(editorMap).forEach(({ quill, input, mode }) => {
+            if (mode === 'visual') {
+                input.value = quill.root.innerHTML;
+            }
         });
     });
+
+    // FAQ Repeater Logic
+    let faqIndex = 0;
+    const faqContainer = document.getElementById('faqContainer');
+    const faqEmptyState = document.getElementById('faqEmptyState');
+    const addFaqBtn = document.getElementById('addFaqBtn');
+    const addFirstFaqBtn = document.getElementById('addFirstFaqBtn');
+
+    function updateFaqNumbers() {
+        const items = faqContainer.querySelectorAll('.faq-item-card');
+        items.forEach((item, idx) => {
+            const badge = item.querySelector('.faq-badge-num');
+            if (badge) {
+                badge.textContent = `FAQ #${idx + 1}`;
+            }
+        });
+        if (items.length === 0) {
+            faqEmptyState.style.display = 'block';
+        } else {
+            faqEmptyState.style.display = 'none';
+        }
+    }
+
+    function addFaqItem(question = '', answer = '') {
+        const currentIdx = faqIndex++;
+        const card = document.createElement('div');
+        card.className = 'faq-item-card card mb-3 border bg-white';
+        card.innerHTML = `
+            <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                <span class="badge bg-secondary faq-badge-num">FAQ #${faqContainer.children.length + 1}</span>
+                <button type="button" class="btn btn-sm btn-outline-danger py-0 px-2 remove-faq-btn" title="Delete FAQ">
+                    <i class="fa fa-trash me-1"></i> Remove
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Question</label>
+                    <input type="text" name="faqs[${currentIdx}][question]" class="form-control" placeholder="e.g. What is the batch timing and duration?" value="${question.replace(/"/g, '&quot;')}">
+                </div>
+                <div>
+                    <label class="form-label fw-semibold">Answer</label>
+                    <textarea name="faqs[${currentIdx}][answer]" class="form-control" rows="3" placeholder="Provide a detailed, clear answer...">${answer}</textarea>
+                </div>
+            </div>
+        `;
+
+        card.querySelector('.remove-faq-btn').addEventListener('click', function () {
+            card.remove();
+            updateFaqNumbers();
+        });
+
+        faqContainer.appendChild(card);
+        updateFaqNumbers();
+    }
+
+    addFaqBtn?.addEventListener('click', () => addFaqItem());
+    addFirstFaqBtn?.addEventListener('click', () => addFaqItem());
+
+    // Prepopulate old input if available
+    const oldFaqs = @json(old('faqs', []));
+    if (Array.isArray(oldFaqs) && oldFaqs.length > 0) {
+        oldFaqs.forEach(faq => {
+            if (faq && (faq.question || faq.answer)) {
+                addFaqItem(faq.question || '', faq.answer || '');
+            }
+        });
+    } else {
+        updateFaqNumbers();
+    }
 </script>
 @endpush
 @endsection
