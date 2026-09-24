@@ -13,42 +13,42 @@
             'num' => '01',
             'title' => 'Climate Literacy Programmes',
             'desc' => 'Helping students and communities understand climate science and its local impact.',
-            'pillar' => 'Pillar 01',
+            'pillar' => '01',
             'image' => asset('images/env/2098b322-0418-471d-80d8-3b320c7b11dc.png'),
         ],
         [
             'num' => '02',
             'title' => 'Community Conservation Initiatives',
             'desc' => 'On-ground, community-driven projects for water, soil and biodiversity conservation.',
-            'pillar' => 'Pillar 02',
+            'pillar' => '02',
             'image' => asset('images/env/27154401-7722-47bb-afb1-8410e784260a.png'),
         ],
         [
             'num' => '03',
             'title' => 'Research & Expert Partnerships',
             'desc' => 'Collaborations with environmental experts and researchers to ground action in evidence.',
-            'pillar' => 'Pillar 03',
+            'pillar' => '03',
             'image' => asset('images/env/2ccd564b-9183-4bed-92ec-76afad5289d0.png'),
         ],
         [
             'num' => '04',
             'title' => 'Youth Climate Action',
             'desc' => 'Engaging young people directly in climate projects, not just classroom discussion.',
-            'pillar' => 'Pillar 04',
+            'pillar' => '04',
             'image' => asset('images/env/416115ea-a762-4c37-b3d8-60879ff131e6.png'),
         ],
         [
             'num' => '05',
             'title' => 'Sustainable Livelihoods',
             'desc' => 'Connecting environmental stewardship with income and livelihood opportunities.',
-            'pillar' => 'Pillar 05',
+            'pillar' => '05',
             'image' => asset('images/env/44a7c466-40be-4733-a4ce-71769417d963.png'),
         ],
         [
             'num' => '06',
             'title' => 'Awareness & Advocacy',
             'desc' => 'Building public understanding and support for sustainable, community-first solutions.',
-            'pillar' => 'Pillar 06',
+            'pillar' => '06',
             'image' => asset('images/env/f10cd3a7-b476-45ad-a4d5-cb94493bd023.png'),
         ],
     ];
@@ -125,7 +125,6 @@
                     <caption class="visually-hidden">Focus areas and environmental initiatives</caption>
                     <thead>
                         <tr>
-                            <th scope="col" class="pillar-column">Pillar</th>
                             <th scope="col">Focus Area</th>
                             <th scope="col">Scope &amp; Impact</th>
                         </tr>
@@ -136,9 +135,6 @@
                                 tabindex="0"
                                 data-image="{{ $area['image'] }}"
                                 data-alt="{{ $area['title'] }}">
-                                <td class="pillar-column">
-                                    <span class="focus-pillar-badge">{{ $area['pillar'] }}</span>
-                                </td>
                                 <th scope="row">
                                     <span class="focus-row-title">{{ $area['title'] }}</span>
                                 </th>
