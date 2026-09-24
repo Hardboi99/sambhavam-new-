@@ -53,10 +53,10 @@
         ],
     ];
     $stats = [
-        ['icon' => 'fa-bullhorn', 'count' => '50+', 'title' => 'Climate Programs', 'desc' => 'Conducted across institutions & communities'],
-        ['icon' => 'fa-users', 'count' => '25,000+', 'title' => 'Youth & Citizens', 'desc' => 'Engaged in active environmental action'],
-        ['icon' => 'fa-flask', 'count' => '15+', 'title' => 'Research Partners', 'desc' => 'Institutions & environmental think-tanks'],
-        ['icon' => 'fa-tree', 'count' => '100+', 'title' => 'Grassroots Projects', 'desc' => 'Driving localized ecological preservation'],
+        ['icon' => 'fa-bullhorn', 'target' => 50, 'suffix' => '+', 'title' => 'Climate Programs', 'desc' => 'Conducted across institutions & communities'],
+        ['icon' => 'fa-users', 'target' => 25000, 'suffix' => '+', 'title' => 'Youth & Citizens', 'desc' => 'Engaged in active environmental action'],
+        ['icon' => 'fa-flask', 'target' => 15, 'suffix' => '+', 'title' => 'Research Partners', 'desc' => 'Institutions & environmental think-tanks'],
+        ['icon' => 'fa-tree', 'target' => 100, 'suffix' => '+', 'title' => 'Grassroots Projects', 'desc' => 'Driving localized ecological preservation'],
     ];
     $audiences = [
         ['icon' => 'fa-graduation-cap', 'title' => 'Students & Youth', 'desc' => 'Fostering deep climate literacy, environmental leadership skills, and hands-on scientific curiosity from early education.'],
@@ -159,7 +159,10 @@
                 @foreach ($stats as $index => $stat)
                     <article class="climate-stat-card" data-climate-reveal data-climate-delay="{{ $index * 80 }}">
                         <span class="climate-stat-card__icon"><i class="fa {{ $stat['icon'] }}" aria-hidden="true"></i></span>
-                        <strong class="climate-stat-card__number">{{ $stat['count'] }}</strong>
+                        <strong class="climate-stat-card__number"
+                                data-counter
+                                data-target="{{ $stat['target'] }}"
+                                data-suffix="{{ $stat['suffix'] ?? '' }}">0{{ $stat['suffix'] ?? '' }}</strong>
                         <h3>{{ $stat['title'] }}</h3><p>{{ $stat['desc'] }}</p>
                     </article>
                 @endforeach

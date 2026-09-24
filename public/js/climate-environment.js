@@ -36,6 +36,64 @@
     revealItems.forEach(function (item) { observer.observe(item); });
     timelines.forEach(function (timeline) { observer.observe(timeline); });
 
+    // Animated Number Counter
+    var counterElements = page.querySelectorAll('[data-counter]');
+    function animateCounter(el) {
+        if (el.hasAttribute('data-counter-done')) return;
+        el.setAttribute('data-counter-done', 'true');
+
+        var target = parseFloat(el.getAttribute('data-target')) || 0;
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1800; // ms
+        var startTime = null;
+
+        function easeOutExpo(t) {
+            return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+        }
+
+        function formatNumber(num) {
+            return Math.floor(num).toLocaleString('en-US');
+        }
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var easedProgress = easeOutExpo(progress);
+            var currentVal = easedProgress * target;
+
+            el.textContent = formatNumber(currentVal) + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                el.textContent = formatNumber(target) + suffix;
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        counterElements.forEach(function (el) {
+            var target = parseFloat(el.getAttribute('data-target')) || 0;
+            var suffix = el.getAttribute('data-suffix') || '';
+            el.textContent = target.toLocaleString('en-US') + suffix;
+        });
+    } else {
+        var counterObserver = new IntersectionObserver(function (entries, activeObserver) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    activeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25 });
+
+        counterElements.forEach(function (el) {
+            counterObserver.observe(el);
+        });
+    }
+
     // Focus Areas interactive table row & floating preview
     var tableSections = page.querySelectorAll('.climate-focus-awards-section');
     tableSections.forEach(function (section) {
@@ -50,14 +108,14 @@
             var newSrc = row.getAttribute('data-image');
             var newAlt = row.getAttribute('data-alt') || '';
             if (newSrc && preview.src !== newSrc) {
-                preview.style.opacity = '0.4';
-                preview.style.transform = 'scale(0.97)';
+                preview.style.opacity = '0.35';
+                preview.style.transform = 'translateY(-50%) rotate(-4deg) scale(0.96)';
                 setTimeout(function () {
                     preview.src = newSrc;
                     preview.alt = newAlt;
                     preview.style.opacity = '1';
-                    preview.style.transform = 'scale(1)';
-                }, 120);
+                    preview.style.transform = 'translateY(-50%) rotate(-4deg) scale(1)';
+                }, 130);
             }
         }
 
