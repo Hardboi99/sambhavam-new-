@@ -108,13 +108,13 @@
             var newSrc = row.getAttribute('data-image');
             var newAlt = row.getAttribute('data-alt') || '';
             if (newSrc && preview.src !== newSrc) {
-                preview.style.opacity = '0.35';
-                preview.style.transform = 'translateY(-50%) rotate(-4deg) scale(0.96)';
+                preview.style.opacity = '0.3';
+                preview.style.transform = 'scale(1.04)';
                 setTimeout(function () {
                     preview.src = newSrc;
                     preview.alt = newAlt;
                     preview.style.opacity = '1';
-                    preview.style.transform = 'translateY(-50%) rotate(-4deg) scale(1)';
+                    preview.style.transform = 'scale(1)';
                 }, 130);
             }
         }
