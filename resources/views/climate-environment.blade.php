@@ -125,9 +125,9 @@
                     <caption class="visually-hidden">Focus areas and environmental initiatives</caption>
                     <thead>
                         <tr>
+                            <th scope="col" class="pillar-column">Pillar</th>
                             <th scope="col">Focus Area</th>
                             <th scope="col">Scope &amp; Impact</th>
-                            <th scope="col" class="pillar-column">Pillar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -136,14 +136,14 @@
                                 tabindex="0"
                                 data-image="{{ $area['image'] }}"
                                 data-alt="{{ $area['title'] }}">
+                                <td class="pillar-column">
+                                    <span class="focus-pillar-badge">{{ $area['pillar'] }}</span>
+                                </td>
                                 <th scope="row">
                                     <span class="focus-row-title">{{ $area['title'] }}</span>
                                 </th>
                                 <td>
                                     <span class="focus-row-desc">{{ $area['desc'] }}</span>
-                                </td>
-                                <td class="pillar-column">
-                                    <span class="focus-pillar-badge">{{ $area['pillar'] }}</span>
                                 </td>
                             </tr>
                         @endforeach

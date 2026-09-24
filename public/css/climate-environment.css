@@ -146,11 +146,11 @@
   font-weight: 700;
 }
 
-.focus-awards-table th:first-child,
-.focus-awards-table td:first-child { width: 38%; }
+.focus-awards-table .pillar-column { width: 16%; text-align: left; padding-left: 0.5rem; }
 .focus-awards-table th:nth-child(2),
-.focus-awards-table td:nth-child(2) { width: 44%; }
-.focus-awards-table .pillar-column { width: 18%; text-align: right; padding-right: 1.5rem; }
+.focus-awards-table td:nth-child(2) { width: 36%; }
+.focus-awards-table th:nth-child(3),
+.focus-awards-table td:nth-child(3) { width: 48%; padding-right: 1.5rem; }
 
 .focus-award-row {
   cursor: pointer;
@@ -213,7 +213,7 @@
   position: absolute;
   z-index: 5;
   top: 50%;
-  right: 6%;
+  right: 4%;
   width: clamp(200px, 20vw, 270px);
   aspect-ratio: 4 / 3;
   margin: 0;
@@ -238,11 +238,11 @@
   .focus-award-preview {
     display: none;
   }
-  .focus-awards-table th:first-child,
-  .focus-awards-table td:first-child { width: 45%; }
+  .focus-awards-table .pillar-column { width: 18%; }
   .focus-awards-table th:nth-child(2),
-  .focus-awards-table td:nth-child(2) { width: 40%; }
-  .focus-awards-table .pillar-column { width: 15%; padding-right: 0.5rem; }
+  .focus-awards-table td:nth-child(2) { width: 38%; }
+  .focus-awards-table th:nth-child(3),
+  .focus-awards-table td:nth-child(3) { width: 44%; padding-right: 0.5rem; }
 }
 
 @media (max-width: 767px) {
@@ -253,9 +253,9 @@
   .focus-awards-table th, .focus-awards-table td { padding: 1rem .5rem 1rem 0; }
   .focus-row-title { font-size: 1rem; }
   .focus-row-desc { font-size: .85rem; }
-  .focus-awards-table th:first-child, .focus-awards-table td:first-child { width: 40%; }
-  .focus-awards-table th:nth-child(2), .focus-awards-table td:nth-child(2) { width: 42%; }
-  .focus-awards-table .pillar-column { width: 18%; padding-right: 0; }
+  .focus-awards-table .pillar-column { width: 22%; padding-left: 0; }
+  .focus-awards-table th:nth-child(2), .focus-awards-table td:nth-child(2) { width: 38%; }
+  .focus-awards-table th:nth-child(3), .focus-awards-table td:nth-child(3) { width: 40%; }
 }
 
 /* Statistics */
