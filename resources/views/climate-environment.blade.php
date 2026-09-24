@@ -9,12 +9,48 @@
 @section('content')
 @php
     $focusAreas = [
-        ['icon' => 'fa-leaf', 'title' => 'Climate Literacy Programmes', 'desc' => 'Helping students and communities understand climate science and its local impact.'],
-        ['icon' => 'fa-tree', 'title' => 'Community Conservation Initiatives', 'desc' => 'On-ground, community-driven projects for water, soil and biodiversity conservation.'],
-        ['icon' => 'fa-flask', 'title' => 'Research & Expert Partnerships', 'desc' => 'Collaborations with environmental experts and researchers to ground action in evidence.'],
-        ['icon' => 'fa-users', 'title' => 'Youth Climate Action', 'desc' => 'Engaging young people directly in climate projects, not just classroom discussion.'],
-        ['icon' => 'fa-recycle', 'title' => 'Sustainable Livelihoods', 'desc' => 'Connecting environmental stewardship with income and livelihood opportunities.'],
-        ['icon' => 'fa-globe', 'title' => 'Awareness & Advocacy', 'desc' => 'Building public understanding and support for sustainable, community-first solutions.'],
+        [
+            'num' => '01',
+            'title' => 'Climate Literacy Programmes',
+            'desc' => 'Helping students and communities understand climate science and its local impact.',
+            'pillar' => 'Pillar 01',
+            'image' => asset('images/env/2098b322-0418-471d-80d8-3b320c7b11dc.png'),
+        ],
+        [
+            'num' => '02',
+            'title' => 'Community Conservation Initiatives',
+            'desc' => 'On-ground, community-driven projects for water, soil and biodiversity conservation.',
+            'pillar' => 'Pillar 02',
+            'image' => asset('images/env/27154401-7722-47bb-afb1-8410e784260a.png'),
+        ],
+        [
+            'num' => '03',
+            'title' => 'Research & Expert Partnerships',
+            'desc' => 'Collaborations with environmental experts and researchers to ground action in evidence.',
+            'pillar' => 'Pillar 03',
+            'image' => asset('images/env/2ccd564b-9183-4bed-92ec-76afad5289d0.png'),
+        ],
+        [
+            'num' => '04',
+            'title' => 'Youth Climate Action',
+            'desc' => 'Engaging young people directly in climate projects, not just classroom discussion.',
+            'pillar' => 'Pillar 04',
+            'image' => asset('images/env/416115ea-a762-4c37-b3d8-60879ff131e6.png'),
+        ],
+        [
+            'num' => '05',
+            'title' => 'Sustainable Livelihoods',
+            'desc' => 'Connecting environmental stewardship with income and livelihood opportunities.',
+            'pillar' => 'Pillar 05',
+            'image' => asset('images/env/44a7c466-40be-4733-a4ce-71769417d963.png'),
+        ],
+        [
+            'num' => '06',
+            'title' => 'Awareness & Advocacy',
+            'desc' => 'Building public understanding and support for sustainable, community-first solutions.',
+            'pillar' => 'Pillar 06',
+            'image' => asset('images/env/f10cd3a7-b476-45ad-a4d5-cb94493bd023.png'),
+        ],
     ];
     $stats = [
         ['icon' => 'fa-bullhorn', 'count' => '50+', 'title' => 'Climate Programs', 'desc' => 'Conducted across institutions & communities'],
@@ -74,22 +110,49 @@
         </div>
     </section>
 
-    <section class="climate-section climate-focus" aria-labelledby="climate-focus-title">
+    <section class="climate-focus-awards-section" aria-labelledby="climate-focus-title">
         <div class="container">
-            <header class="climate-section-head" data-climate-reveal>
-                <span class="climate-eyebrow">Our Work</span>
-                <h2 id="climate-focus-title">What This Platform Covers</h2>
-                <p>Connecting learning, research and community leadership to the environmental challenges that shape our shared future.</p>
-            </header>
-            <div class="climate-focus__grid">
-                @foreach ($focusAreas as $i => $area)
-                    <article class="climate-focus-card" data-climate-reveal data-climate-delay="{{ ($i % 2) * 90 }}">
-                        <span class="climate-focus-card__number">{{ sprintf('%02d', $i + 1) }}</span>
-                        <span class="climate-focus-card__icon"><i class="fa {{ $area['icon'] }}" aria-hidden="true"></i></span>
-                        <div><h3>{{ $area['title'] }}</h3><p>{{ $area['desc'] }}</p></div>
-                        <span class="climate-focus-card__arrow" aria-hidden="true"><i class="fa fa-long-arrow-right"></i></span>
-                    </article>
-                @endforeach
+            <div class="focus-awards-intro" data-climate-reveal>
+                <div class="focus-awards-heading">
+                    <p class="focus-awards-kicker"><span class="focus-awards-kicker-icon" aria-hidden="true"><i class="fa fa-leaf"></i></span> Our Work</p>
+                    <h2 id="climate-focus-title">What This Platform Covers</h2>
+                </div>
+                <p class="focus-awards-summary">Connecting learning, research and community leadership to the environmental challenges that shape our shared future.</p>
+            </div>
+
+            <div class="focus-awards-table-wrap" data-climate-reveal>
+                <table class="focus-awards-table">
+                    <caption class="visually-hidden">Focus areas and environmental initiatives</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Focus Area</th>
+                            <th scope="col">Scope &amp; Impact</th>
+                            <th scope="col" class="pillar-column">Pillar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($focusAreas as $index => $area)
+                            <tr class="focus-award-row {{ $index === 0 ? 'is-active' : '' }}"
+                                tabindex="0"
+                                data-image="{{ $area['image'] }}"
+                                data-alt="{{ $area['title'] }}">
+                                <th scope="row">
+                                    <span class="focus-row-title">{{ $area['title'] }}</span>
+                                </th>
+                                <td>
+                                    <span class="focus-row-desc">{{ $area['desc'] }}</span>
+                                </td>
+                                <td class="pillar-column">
+                                    <span class="focus-pillar-badge">{{ $area['pillar'] }}</span>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <figure class="focus-award-preview" aria-live="polite">
+                    <img src="{{ $focusAreas[0]['image'] }}" alt="{{ $focusAreas[0]['title'] }}" data-award-preview>
+                </figure>
             </div>
         </div>
     </section>

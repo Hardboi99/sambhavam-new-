@@ -35,4 +35,36 @@
 
     revealItems.forEach(function (item) { observer.observe(item); });
     timelines.forEach(function (timeline) { observer.observe(timeline); });
+
+    // Focus Areas interactive table row & floating preview
+    var tableSections = page.querySelectorAll('.climate-focus-awards-section');
+    tableSections.forEach(function (section) {
+        var rows = section.querySelectorAll('.focus-award-row');
+        var preview = section.querySelector('[data-award-preview]');
+        if (!preview || !rows.length) return;
+
+        function activateRow(row) {
+            rows.forEach(function (item) {
+                item.classList.toggle('is-active', item === row);
+            });
+            var newSrc = row.getAttribute('data-image');
+            var newAlt = row.getAttribute('data-alt') || '';
+            if (newSrc && preview.src !== newSrc) {
+                preview.style.opacity = '0.4';
+                preview.style.transform = 'scale(0.97)';
+                setTimeout(function () {
+                    preview.src = newSrc;
+                    preview.alt = newAlt;
+                    preview.style.opacity = '1';
+                    preview.style.transform = 'scale(1)';
+                }, 120);
+            }
+        }
+
+        rows.forEach(function (row) {
+            row.addEventListener('mouseenter', function () { activateRow(row); });
+            row.addEventListener('focus', function () { activateRow(row); });
+            row.addEventListener('click', function () { activateRow(row); });
+        });
+    });
 })();

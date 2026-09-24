@@ -57,20 +57,206 @@
 .climate-intro__note { display: flex; align-items: center; gap: 11px; padding-top: 18px; border-top: 1px solid var(--ed-color-border-1); color: var(--sambhavam-teal); font-size: 14px; font-weight: 600; }
 .climate-intro__note i { color: var(--sambhavam-gold); font-size: 19px; }
 
-/* Focus Areas */
-.climate-focus { background: linear-gradient(180deg, #f7faf9 0%, #f1f7f5 100%); }
-.climate-focus__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
-.climate-focus-card { position: relative; display: grid; grid-template-columns: 42px 54px 1fr 22px; align-items: start; gap: 17px; min-width: 0; padding: 25px 24px; border: 1px solid var(--ed-color-border-1); border-radius: 16px; background: #fff; box-shadow: 0 5px 18px rgb(3 72 97 / 4%); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
-.climate-focus-card::before { position: absolute; top: 20px; bottom: 20px; left: 0; width: 3px; border-radius: 0 3px 3px 0; background: var(--sambhavam-gold); content: ""; transform: scaleY(0); transform-origin: center; transition: transform .28s ease; }
-.climate-focus-card:hover { transform: translateY(-4px); border-color: rgb(1 109 119 / 28%); box-shadow: 0 16px 32px rgb(3 72 97 / 9%); }
-.climate-focus-card:hover::before { transform: scaleY(1); }
-.climate-focus-card__number { padding-top: 4px; color: #93a2a8; font-size: 12px; font-weight: 700; letter-spacing: .05em; }
-.climate-focus-card__icon { display: grid; width: 50px; height: 50px; place-items: center; border-radius: 14px; background: rgb(1 109 119 / 8%); color: var(--sambhavam-teal); font-size: 19px; transition: background .25s ease, color .25s ease, transform .25s ease; }
-.climate-focus-card:hover .climate-focus-card__icon { transform: translateY(-2px); background: var(--sambhavam-teal); color: #fff; }
-.climate-focus-card h3 { margin: 1px 0 7px; color: var(--ed-color-heading-primary); font-size: 17px; font-weight: 700; line-height: 1.35; }
-.climate-focus-card p { margin: 0; font-size: 14px; line-height: 1.65; }
-.climate-focus-card__arrow { align-self: center; color: var(--sambhavam-teal); opacity: 0; transform: translateX(-5px); transition: opacity .25s ease, transform .25s ease; }
-.climate-focus-card:hover .climate-focus-card__arrow { opacity: 1; transform: translateX(0); }
+/* Focus Areas - Awards Style Table with Preview */
+.climate-focus-awards-section {
+  background: #fbfaf7;
+  color: var(--ed-color-heading-primary);
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  border-top: 1px solid var(--ed-color-border-1);
+}
+
+.focus-awards-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(220px, .75fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.focus-awards-kicker {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin: 0 0 1rem;
+  color: var(--sambhavam-teal);
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.focus-awards-kicker-icon {
+  display: inline-grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+  font-size: 1rem;
+  color: var(--sambhavam-teal);
+}
+
+.focus-awards-heading h2 {
+  max-width: 680px;
+  margin: 0;
+  color: var(--ed-color-heading-primary);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.15;
+}
+
+.focus-awards-summary {
+  max-width: 420px;
+  margin: .3rem 0 0;
+  color: var(--ed-color-text-body);
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.6;
+}
+
+.focus-awards-table-wrap {
+  position: relative;
+}
+
+.focus-awards-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 1rem;
+}
+
+.focus-awards-table th,
+.focus-awards-table td {
+  padding: 1.4rem 1rem 1.4rem 0;
+  border-bottom: 1px solid var(--ed-color-border-1);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.focus-awards-table thead th {
+  padding-top: 0;
+  padding-bottom: 1.2rem;
+  color: var(--ed-color-heading-primary);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: 13px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--ed-color-border-1);
+}
+
+.focus-awards-table tbody th {
+  font-weight: 700;
+}
+
+.focus-awards-table th:first-child,
+.focus-awards-table td:first-child { width: 38%; }
+.focus-awards-table th:nth-child(2),
+.focus-awards-table td:nth-child(2) { width: 44%; }
+.focus-awards-table .pillar-column { width: 18%; text-align: right; padding-right: 1.5rem; }
+
+.focus-award-row {
+  cursor: pointer;
+  outline: none;
+  transition: all .25s ease;
+}
+
+.focus-row-title {
+  display: inline-block;
+  color: var(--ed-color-heading-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+  transition: color .25s ease;
+}
+
+.focus-row-desc {
+  display: inline-block;
+  color: var(--ed-color-text-body);
+  font-size: .95rem;
+  line-height: 1.55;
+  transition: color .25s ease;
+}
+
+.focus-pillar-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 50px;
+  background: rgba(1, 109, 119, 0.08);
+  color: var(--sambhavam-teal);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  transition: all .25s ease;
+}
+
+.focus-award-row:hover .focus-row-title,
+.focus-award-row:focus-visible .focus-row-title,
+.focus-award-row.is-active .focus-row-title {
+  color: var(--sambhavam-teal);
+}
+
+.focus-award-row:hover,
+.focus-award-row:focus-visible,
+.focus-award-row.is-active {
+  background: rgba(1, 109, 119, 0.03);
+}
+
+.focus-award-row.is-active .focus-pillar-badge,
+.focus-award-row:hover .focus-pillar-badge {
+  background: var(--sambhavam-teal);
+  color: #ffffff;
+}
+
+.focus-award-row:focus-visible .focus-row-title {
+  text-decoration: underline;
+  text-underline-offset: .25rem;
+}
+
+.focus-award-preview {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  right: 6%;
+  width: clamp(200px, 20vw, 270px);
+  aspect-ratio: 4 / 3;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--sambhavam-blue);
+  box-shadow: 0 1.5rem 3rem rgba(3, 72, 97, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  transform: translateY(-50%) rotate(-4deg);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.focus-award-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity .3s ease, transform .35s ease;
+}
+
+@media (max-width: 991px) {
+  .focus-award-preview {
+    display: none;
+  }
+  .focus-awards-table th:first-child,
+  .focus-awards-table td:first-child { width: 45%; }
+  .focus-awards-table th:nth-child(2),
+  .focus-awards-table td:nth-child(2) { width: 40%; }
+  .focus-awards-table .pillar-column { width: 15%; padding-right: 0.5rem; }
+}
+
+@media (max-width: 767px) {
+  .climate-focus-awards-section { padding: 3.5rem 0; }
+  .focus-awards-intro { grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 2.5rem; }
+  .focus-awards-heading h2 { font-size: clamp(1.85rem, 8vw, 2.4rem); }
+  .focus-awards-table { font-size: .88rem; }
+  .focus-awards-table th, .focus-awards-table td { padding: 1rem .5rem 1rem 0; }
+  .focus-row-title { font-size: 1rem; }
+  .focus-row-desc { font-size: .85rem; }
+  .focus-awards-table th:first-child, .focus-awards-table td:first-child { width: 40%; }
+  .focus-awards-table th:nth-child(2), .focus-awards-table td:nth-child(2) { width: 42%; }
+  .focus-awards-table .pillar-column { width: 18%; padding-right: 0; }
+}
 
 /* Statistics */
 .climate-stats { padding: 38px 0; border-top: 1px solid var(--ed-color-border-1); border-bottom: 1px solid var(--ed-color-border-1); background: #fff; }
@@ -144,8 +330,6 @@
     .climate-hero { min-height: 420px; }
     .climate-intro__layout { grid-template-columns: 1fr 1fr; gap: 34px; }
     .climate-intro__media { min-height: 360px; }
-    .climate-focus-card { grid-template-columns: 34px 48px 1fr 16px; gap: 12px; padding: 22px 17px; }
-    .climate-focus-card__icon { width: 46px; height: 46px; }
     .climate-timeline__track { display: none; }
     .climate-timeline__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 18px; }
     .climate-timeline__card { min-height: 0; }
@@ -158,8 +342,6 @@
     .climate-intro__layout { grid-template-columns: 1fr; gap: 27px; }
     .climate-intro__media { min-height: min(68vw, 390px); }
     .climate-intro__copy { max-width: none; }
-    .climate-focus__grid { grid-template-columns: 1fr; gap: 12px; }
-    .climate-focus-card { grid-template-columns: 32px 46px minmax(0, 1fr) 16px; padding: 19px 16px; }
     .climate-stats__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .climate-stat-card { padding: 22px 12px; }
     .climate-stat-card:nth-child(3) { border-left: 0; }
@@ -178,11 +360,6 @@
     .climate-hero__content > p { font-size: 14px; }
     .climate-intro__media { min-height: 300px; }
     .climate-intro__copy .climate-intro__lead { font-size: 16px; }
-    .climate-focus-card { grid-template-columns: 25px 42px minmax(0, 1fr); gap: 10px; padding: 18px 14px; }
-    .climate-focus-card__icon { width: 40px; height: 40px; font-size: 16px; }
-    .climate-focus-card h3 { font-size: 15px; }
-    .climate-focus-card p { font-size: 13px; }
-    .climate-focus-card__arrow { display: none; }
     .climate-audience-grid { grid-template-columns: 1fr; }
     .climate-audience-card { display: grid; grid-template-columns: 48px 1fr; column-gap: 14px; align-items: center; }
     .climate-audience-card__icon { grid-row: span 2; width: 46px; height: 46px; margin: 0; }
