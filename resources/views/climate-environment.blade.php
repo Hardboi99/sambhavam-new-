@@ -177,12 +177,39 @@
                 <h2 id="climate-audiences-title">Communities, Students &amp; Changemakers</h2>
                 <p>Transforming shared concern for our planet into organized, impactful, and lasting collective stewardship.</p>
             </header>
-            <div class="climate-audience-grid">
+            <div class="climate-audience-panels" role="tablist" aria-label="Target audiences and ecosystem" data-climate-reveal>
                 @foreach ($audiences as $idx => $audience)
-                    <article class="climate-audience-card" data-climate-reveal data-climate-delay="{{ $idx * 80 }}">
-                        <span class="climate-audience-card__icon"><i class="fa {{ $audience['icon'] }}" aria-hidden="true"></i></span>
-                        <h3>{{ $audience['title'] }}</h3><p>{{ $audience['desc'] }}</p>
-                    </article>
+                    <button type="button"
+                            class="climate-audience-panel {{ $idx === 0 ? 'is-active' : '' }}"
+                            role="tab"
+                            id="audience-tab-{{ $idx }}"
+                            aria-selected="{{ $idx === 0 ? 'true' : 'false' }}"
+                            aria-expanded="{{ $idx === 0 ? 'true' : 'false' }}"
+                            aria-controls="audience-panel-{{ $idx }}"
+                            tabindex="{{ $idx === 0 ? '0' : '-1' }}"
+                            data-index="{{ $idx }}">
+                        
+                        <div class="climate-audience-panel__header">
+                            <span class="climate-audience-panel__num">{{ sprintf('%02d', $idx + 1) }}</span>
+                            <span class="climate-audience-panel__icon">
+                                <i class="fa {{ $audience['icon'] }}" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                        <div class="climate-audience-panel__body" id="audience-panel-{{ $idx }}" role="tabpanel" aria-labelledby="audience-tab-{{ $idx }}">
+                            <h3 class="climate-audience-panel__title">{{ $audience['title'] }}</h3>
+                            <div class="climate-audience-panel__progress" aria-hidden="true">
+                                <span class="climate-audience-panel__progress-bar"></span>
+                            </div>
+                            <div class="climate-audience-panel__desc-wrap">
+                                <p class="climate-audience-panel__desc">{{ $audience['desc'] }}</p>
+                            </div>
+                        </div>
+
+                        <div class="climate-audience-panel__watermark" aria-hidden="true">
+                            <i class="fa {{ $audience['icon'] }}"></i>
+                        </div>
+                    </button>
                 @endforeach
             </div>
         </div>
