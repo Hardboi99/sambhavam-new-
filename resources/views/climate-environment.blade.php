@@ -26,7 +26,7 @@
         [
             'num' => '03',
             'title' => 'Research & Expert Partnerships',
-            'desc' => 'Collaborations with environmental experts and researchers to ground action in evidence.',
+            'desc' => 'Collaborations with environmental experts and researchers.',
             'pillar' => '03',
             'image' => asset('images/env/2ccd564b-9183-4bed-92ec-76afad5289d0.png'),
         ],
@@ -74,7 +74,7 @@
 
 <main class="climate-page">
     <section class="climate-hero" aria-labelledby="climate-hero-title">
-        <img class="climate-hero__image" src="{{ asset('images/banners/upsc1.avif') }}" alt="Green landscape representing environmental stewardship">
+        <img class="climate-hero__image" src="{{ asset('images/env/background.png') }}" alt="Green landscape representing environmental stewardship">
         <div class="climate-hero__overlay" aria-hidden="true"></div>
         <div class="container climate-hero__container">
             <div class="climate-hero__content" data-climate-reveal>
