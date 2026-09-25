@@ -62,7 +62,7 @@
             </header>
             <div class="innovative-intro__layout">
                 <figure class="innovative-intro__media" data-innovative-reveal>
-                    <img src="{{ asset('images/about/about-img-1.jpg') }}" alt="Sambhavam learners building practical skills and enterprise ideas" loading="lazy">
+                    <img src="{{ asset('images/about/about-img-2.png') }}" alt="Sambhavam learners building practical skills and enterprise ideas" loading="lazy">
                     <figcaption class="innovative-intro__badge"><span class="innovative-intro__badge-icon"><i class="fa fa-rocket" aria-hidden="true"></i></span><span><strong>Enterprise &amp; Growth Initiative</strong><small>Grounded in skills &amp; sustainable independence</small></span></figcaption>
                 </figure>
                 <div class="innovative-intro__copy" data-innovative-reveal data-innovative-delay="120">
@@ -124,39 +124,39 @@
                     </div>
                 </div>
 
-                {{-- RIGHT: Clean image + details card --}}
+                {{-- RIGHT: Single image + text pane --}}
                 <div class="focus-spotlight__pane" id="fs-panel-0" role="tabpanel" aria-labelledby="fs-tab-0">
                     <figure class="focus-spotlight__figure">
                         <img class="focus-spotlight__img"
                              src="{{ asset($focusAreas[0]['image']) }}"
                              alt="{{ $focusAreas[0]['title'] }}: Sambhavam focus area"
                              id="fs-pane-img">
+                        <div class="focus-spotlight__overlay" aria-hidden="true"></div>
+                        <figcaption class="focus-spotlight__caption" id="fs-pane-caption">
+                            <span class="focus-spotlight__caption-num" id="fs-pane-num">01</span>
+                            <h3 class="focus-spotlight__caption-title" id="fs-pane-title">{{ $focusAreas[0]['title'] }}</h3>
+                            <p class="focus-spotlight__caption-desc" id="fs-pane-desc">{{ $focusAreas[0]['desc'] }}</p>
+                        </figcaption>
                     </figure>
-                    <div class="focus-spotlight__details" id="fs-pane-details">
-                        <div class="focus-spotlight__eyebrow-row">
-                            <span class="focus-spotlight__num-badge" id="fs-pane-num">Focus Area 01</span>
-                        </div>
-                        <h3 class="focus-spotlight__title" id="fs-pane-title">{{ $focusAreas[0]['title'] }}</h3>
-                        <p class="focus-spotlight__desc" id="fs-pane-desc">{{ $focusAreas[0]['desc'] }}</p>
-                    </div>
                 </div>
 
                 {{-- Hidden data store for JS --}}
-                @php
-                    $focusAreasData = array_map(function($area, $i) {
-                        return [
-                            'index' => $i,
-                            'num' => sprintf('%02d', $i + 1),
-                            'title' => $area['title'],
-                            'desc' => $area['desc'],
-                            'image' => asset($area['image']),
-                            'alt' => $area['title'] . ': Sambhavam focus area',
-                            'panelId' => 'fs-panel-' . $i,
-                            'tabId' => 'fs-tab-' . $i,
-                        ];
-                    }, $focusAreas, array_keys($focusAreas));
-                @endphp
-                <script type="application/json" id="fs-data">{!! json_encode($focusAreasData) !!}</script>
+                <script type="application/json" id="fs-data">
+                    [
+                    @foreach ($focusAreas as $i => $area)
+                        {
+                            "index": {{ $i }},
+                            "num": "{{ sprintf('%02d', $i + 1) }}",
+                            "title": "{{ addslashes($area['title']) }}",
+                            "desc": "{{ addslashes($area['desc']) }}",
+                            "image": "{{ asset($area['image']) }}",
+                            "alt": "{{ addslashes($area['title']) }}: Sambhavam focus area",
+                            "panelId": "fs-panel-{{ $i }}",
+                            "tabId": "fs-tab-{{ $i }}"
+                        }{{ $i < count($focusAreas) - 1 ? ',' : '' }}
+                    @endforeach
+                    ]
+                </script>
             </div>{{-- /.focus-spotlight --}}
 
             {{-- ═══════════════════════════════════════════════
@@ -164,7 +164,7 @@
             ═══════════════════════════════════════════════ --}}
             <div class="focus-mobile-stack">
                 @foreach ($focusAreas as $i => $area)
-                    <div class="focus-mobile-block">
+                    <div class="focus-mobile-block" data-innovative-reveal data-innovative-delay="{{ $i * 70 }}">
                         <figure class="focus-mobile-block__figure">
                             <img src="{{ asset($area['image']) }}"
                                  alt="{{ $area['title'] }}: Sambhavam focus area"
@@ -179,6 +179,21 @@
                         </div>
                     </div>
                 @endforeach
+
+                {{-- Mobile Callout Card --}}
+                <div class="focus-mobile-footer" data-innovative-reveal>
+                    <div class="focus-mobile-footer__inner">
+                        <span class="focus-mobile-footer__icon" aria-hidden="true"><i class="fa fa-lightbulb-o"></i></span>
+                        <div class="focus-mobile-footer__text">
+                            <h4 class="focus-mobile-footer__title">Need a Custom Initiative?</h4>
+                            <p class="focus-mobile-footer__desc">Partner with Sambhavam to co-create scalable livelihood and skill programs.</p>
+                        </div>
+                    </div>
+                    <a href="{{ url('contact') }}" class="focus-mobile-footer__btn">
+                        <span>Get in Touch</span>
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>{{-- /.focus-mobile-stack --}}
 
         </div>
@@ -228,6 +243,8 @@
                             <span class="innovative-audience-panel__icon">
                                 <i class="fa {{ $audience['icon'] }}" aria-hidden="true"></i>
                             </span>
+                            <h3 class="innovative-audience-panel__mobile-title">{{ $audience['title'] }}</h3>
+                            <span class="innovative-audience-panel__chevron" aria-hidden="true"><i class="fa fa-chevron-down"></i></span>
                         </div>
 
                         <div class="innovative-audience-panel__body" id="audience-panel-{{ $idx }}" role="tabpanel" aria-labelledby="audience-tab-{{ $idx }}">

@@ -135,7 +135,7 @@
         /* DOM refs */
         var tabs     = Array.from(spotlight.querySelectorAll('.focus-spotlight__tab'));
         var img      = document.getElementById('fs-pane-img');
-        var details  = document.getElementById('fs-pane-details');
+        var details  = document.getElementById('fs-pane-caption') || document.getElementById('fs-pane-details');
         var numEl    = document.getElementById('fs-pane-num');
         var titleEl  = document.getElementById('fs-pane-title');
         var descEl   = document.getElementById('fs-pane-desc');
@@ -173,7 +173,7 @@
                 /* Instant swap */
                 img.src = areas[index].image;
                 img.alt = areas[index].alt;
-                if (numEl) numEl.textContent   = 'Focus Area ' + areas[index].num;
+                if (numEl) numEl.textContent   = areas[index].num;
                 if (titleEl) titleEl.textContent = areas[index].title;
                 if (descEl) descEl.textContent  = areas[index].desc;
                 current = index;
@@ -188,7 +188,7 @@
             setTimeout(function () {
                 img.src = areas[index].image;
                 img.alt = areas[index].alt;
-                if (numEl) numEl.textContent   = 'Focus Area ' + areas[index].num;
+                if (numEl) numEl.textContent   = areas[index].num;
                 if (titleEl) titleEl.textContent = areas[index].title;
                 if (descEl) descEl.textContent  = areas[index].desc;
 
